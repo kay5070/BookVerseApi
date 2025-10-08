@@ -1,8 +1,8 @@
-    bin/
-    obj/
-    /packages/
-    riderModule.iml
-    /_ReSharper.Caches/
-    .idea/
-    *.cache
-    *.AssemblyInfo.cs
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+.idea/
+*.cache
+*.AssemblyInfo.cs
