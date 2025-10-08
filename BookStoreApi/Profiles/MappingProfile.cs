@@ -22,10 +22,13 @@ public class MappingProfile:Profile
         // Author Mapping
         CreateMap<AuthorCreateDto, Author>();
         CreateMap<Author, AuthorReadDto>().ForMember(dest=>dest.Books,opt=>opt.MapFrom(src=>src.Books));
+        CreateMap<Author, AuthorsReadDto>();
         CreateMap<AuthorUpdateDto, Author>();
         
+        //Category Mapping
         CreateMap<CategoryCreateDto, Category>();
         CreateMap<Category, CategoryReadDto>();
+        CreateMap<Category, CategoriesReadDto>();
         CreateMap<CategoryUpdateDto, Category>();
     }
 }

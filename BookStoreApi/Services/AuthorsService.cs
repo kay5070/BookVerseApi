@@ -15,10 +15,10 @@ public class AuthorsService:IAuthorsService
         _repository = repository;
         _mapper = mapper;
     }
-    public async Task<IEnumerable<AuthorReadDto>> GetAllAsync()
+    public async Task<IEnumerable<AuthorsReadDto>> GetAllAsync()
     {
         var authors = await _repository.GetAllAsync();
-        return _mapper.Map<IEnumerable<AuthorReadDto>>(authors);
+        return _mapper.Map<IEnumerable<AuthorsReadDto>>(authors);
     }
 
     public async Task<AuthorReadDto?> GetByIdAsync(int id)

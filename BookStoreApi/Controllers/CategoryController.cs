@@ -18,7 +18,7 @@ public class CategoryController:ControllerBase
     }
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<IEnumerable<CategoryReadDto>>> GetCategories()
+    public async Task<ActionResult<IEnumerable<CategoriesReadDto>>> GetCategories()
     {
         var categories = await _categoryService.GetAllAsync();
         return Ok(categories);

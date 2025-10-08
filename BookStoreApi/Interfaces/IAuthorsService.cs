@@ -4,7 +4,7 @@ namespace BookStoreApi.Interfaces;
 
 public interface IAuthorsService
 {
-    Task<IEnumerable<AuthorReadDto>> GetAllAsync();
+    Task<IEnumerable<AuthorsReadDto>> GetAllAsync();
     Task<AuthorReadDto?> GetByIdAsync(int id);
     Task<AuthorReadDto> CreateAsync(AuthorCreateDto authorDto);
     Task<bool> UpdateAsync(int id, AuthorUpdateDto authorDto);

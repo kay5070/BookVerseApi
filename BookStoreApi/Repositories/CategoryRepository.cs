@@ -5,46 +5,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApi.Repositories;
 
-public class CategoryRepository:ICategoryRepository
+public class CategoryRepository:GenericRepository<Category>,ICategoryRepository
 {
     private readonly AppDbContext _context;
 
-    public CategoryRepository(AppDbContext context)
+    public CategoryRepository(AppDbContext context):base(context)
     {
         _context = context;
     }
+
     public async Task<IEnumerable<Category>> GetAllAsync()
     {
-        return await _context.Categories.AsNoTracking().Include(c=>c.Books).ToListAsync();
+        return await _dbSet.ToListAsync();
     }
 
     public async Task<Category?> GetByIdAsync(int id)
     {
-        return await _context.Categories.Include(c=>c.Books).FirstOrDefaultAsync(c => c.Id == id);
+        return await _dbSet.Include(c => c.Books).FirstOrDefaultAsync(c => c.Id == id);
     }
 
-    public async Task<Category?> GetByNameAsync(string Name)
+    public async Task<Category?> GetByNameAsync(string name)
     {
-        return await _context.Categories.FirstOrDefaultAsync(c => c.Name == Name);
-    }
-
-    public async Task AddAsync(Category category)
-    {
-            await _context.Categories.AddAsync(category);
-    }
-
-    public void Update(Category category)
-    {
-        _context.Categories.Update(category);
-    }
-
-    public void Delete(Category category)
-    {
-        _context.Categories.Remove(category);
-    }
-
-    public async Task SaveAsync()
-    {
-        await _context.SaveChangesAsync();
+        return await _dbSet.Include(c => c.Books).FirstOrDefaultAsync(c => c.Name == name);
     }
 }

@@ -2,13 +2,10 @@
 
 namespace BookStoreApi.Interfaces;
 
-public interface ICategoryRepository
+public interface ICategoryRepository : IGenericRepository<Category>
 {
     Task<IEnumerable<Category>> GetAllAsync();
     Task<Category?> GetByIdAsync(int id);
-    Task<Category?> GetByNameAsync(string Name);
-    Task AddAsync(Category category);
-    void Update(Category category);
-    void Delete(Category category);
-    Task SaveAsync();
+    Task<Category?> GetByNameAsync(string name);
+   
 }

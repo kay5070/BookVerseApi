@@ -16,10 +16,10 @@ public class CategoryService: ICategoryService
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<CategoryReadDto>> GetAllAsync()
+    public async Task<IEnumerable<CategoriesReadDto>> GetAllAsync()
     {
         var categories = await _repository.GetAllAsync();
-        return _mapper.Map<IEnumerable<CategoryReadDto>>(categories);
+        return _mapper.Map<IEnumerable<CategoriesReadDto>>(categories);
     }
 
     public async Task<CategoryReadDto?> GetByIdAsync(int id)
