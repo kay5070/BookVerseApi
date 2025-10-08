@@ -39,7 +39,7 @@ public class BooksService : IBooksService
         else
         {
             await _repository.AddAsync(book);
-            await _repository.SaveAsync();
+            await _repository.FindAsync(b => b.Title == book.Title);
             return _mapper.Map<BookReadDto>(book);
         }
         

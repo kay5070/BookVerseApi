@@ -1,15 +1,12 @@
-﻿using BookStoreApi.Entities;
+﻿using System.Linq.Expressions;
+using BookStoreApi.Entities;
 
 namespace BookStoreApi.Interfaces;
 
-public interface IBookRepository
+public interface IBookRepository : IGenericRepository<Book>
 {
-    Task<IEnumerable<Book>> GetAllAsync();
+    Task<IEnumerable<Book>> FindAsync(Expression<Func<Book, bool>> predicate);
     Task<Book?> GetByIdAsync(int id);
+    Task<IEnumerable<Book>> GetAllAsync();
     Task<Book?> GetExistingBook(Book book);
-    
-    Task AddAsync(Book book);
-    void Update(Book book);
-    void Delete(Book book);
-    Task SaveAsync();
 }
