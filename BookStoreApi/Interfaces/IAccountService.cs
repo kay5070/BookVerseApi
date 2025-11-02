@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.Data;
-
+﻿using BookStoreApi.Dtos.User;
 namespace BookStoreApi.Interfaces;
 
 public interface IAccountService
 {
-    Task RegisterAsync(RegisterRequest registerRequest);
+    Task<RegisterResponse> RegisterAsync(RegisterRequest registerRequest);
 }
