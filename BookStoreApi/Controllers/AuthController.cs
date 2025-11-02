@@ -29,5 +29,18 @@ namespace BookStoreApi.Controllers
 
             return BadRequest(response);
         }
+        [HttpPost("login")]
+        [ProducesResponseType(typeof(LoginResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(LoginResponse), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            var response = await _accountService.LoginAsync(loginRequest);
+            if (response.Succeeded)
+            {
+                return Ok(response);
+            }
+
+            return BadRequest(response);
+        }
     }
 }

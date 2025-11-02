@@ -51,6 +51,37 @@ public class AccountService : IAccountService
             Message = "User registered successfully.",
         };
     }
+
+    public async Task<LoginResponse> LoginAsync(LoginRequest loginRequest)
+    {
+        var user = await _userManager.FindByEmailAsync(loginRequest.Email);
+        if (user == null || !await _userManager.CheckPasswordAsync(user,loginRequest.Password))
+        {
+            return new LoginResponse
+            {
+                Succeeded = false,
+                Message = "Invalid Username or Password",
+            };
+        }
+
+        var (jwtToken, expirationDateInUtc) = _authTokenProcessor.GenerateJwtToken(user);
+
+        var refreshTokenValue = _authTokenProcessor.GenerateRefreshToken();
+
+        var refreshTokenExpirationDateInUtc = DateTime.UtcNow.AddDays(7);
+        user.RefreshToken = refreshTokenValue;
+        user.RefreshTokenExpiresAtUtc = refreshTokenExpirationDateInUtc;
+
+        await _userManager.UpdateAsync(user);
+        return new LoginResponse
+        {
+            Succeeded = true,
+            Message = "Login Successful.",
+            AccessToken = jwtToken,
+            ExpiresAtUtc = expirationDateInUtc,
+            RefreshToken = refreshTokenValue
+        };
+    }
 }
 
 
