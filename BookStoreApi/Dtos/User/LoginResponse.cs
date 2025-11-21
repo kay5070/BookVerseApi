@@ -1,9 +1,0 @@
-﻿namespace BookStoreApi.Dtos.User;
-
-public record LoginResponse : BasicResponse
-{
-    public string? AccessToken { get; init; }
-    public DateTime? ExpiresAtUtc{ get; init; }
-    public string? RefreshToken{ get; init; }
-    
-}
