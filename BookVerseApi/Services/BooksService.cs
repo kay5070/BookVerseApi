@@ -38,6 +38,8 @@ public class BooksService : IBooksService
         }
         else
         {
+            book.CreatedAtUtc = DateTime.UtcNow;
+            book.UpdatedAtUtc = DateTime.UtcNow;
             await _repository.AddAsync(book);
             await _repository.FindAsync(b => b.Title == book.Title);
             return _mapper.Map<BookReadDto>(book);
@@ -51,6 +53,7 @@ public class BooksService : IBooksService
         if (book == null) return false;
 
         _mapper.Map(bookDto, book);
+        book.UpdatedAtUtc = DateTime.UtcNow;
         await _repository.SaveAsync();
         return true;
     }

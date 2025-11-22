@@ -25,7 +25,7 @@ namespace BookVerseApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Author", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace BookVerseApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Book", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -158,7 +158,7 @@ namespace BookVerseApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Category", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -202,15 +202,15 @@ namespace BookVerseApi.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Book", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Book", b =>
                 {
-                    b.HasOne("BookStoreApi.Domain.Entities.Author", "Author")
+                    b.HasOne("BookVerseApi.Domain.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStoreApi.Domain.Entities.Category", "Category")
+                    b.HasOne("BookVerseApi.Domain.Entities.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -221,12 +221,12 @@ namespace BookVerseApi.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Author", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("BookStoreApi.Domain.Entities.Category", b =>
+            modelBuilder.Entity("BookVerseApi.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Books");
                 });

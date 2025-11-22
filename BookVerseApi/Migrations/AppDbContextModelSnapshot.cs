@@ -22,13 +22,16 @@ namespace BookVerseApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookStoreApi.Entities.Author", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -38,44 +41,52 @@ namespace BookVerseApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "George",
                             LastName = "Orwell"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "J.K.",
                             LastName = "Rowling"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jane",
                             LastName = "Austen"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Mark",
                             LastName = "Twain"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Fyodor",
                             LastName = "Dostoevsky"
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.Book", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,6 +100,9 @@ namespace BookVerseApi.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -99,13 +113,16 @@ namespace BookVerseApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AuthorId");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
 
                     b.HasData(
                         new
@@ -113,6 +130,7 @@ namespace BookVerseApi.Migrations
                             Id = 1,
                             AuthorId = 1,
                             CategoryId = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 15.99m,
                             PublishDate = new DateOnly(1949, 6, 8),
                             Title = "1984"
@@ -122,6 +140,7 @@ namespace BookVerseApi.Migrations
                             Id = 2,
                             AuthorId = 2,
                             CategoryId = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 19.99m,
                             PublishDate = new DateOnly(1997, 6, 26),
                             Title = "Harry Potter and the Sorcerer's Stone"
@@ -131,6 +150,7 @@ namespace BookVerseApi.Migrations
                             Id = 3,
                             AuthorId = 3,
                             CategoryId = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 12.5m,
                             PublishDate = new DateOnly(1813, 1, 28),
                             Title = "Pride and Prejudice"
@@ -140,6 +160,7 @@ namespace BookVerseApi.Migrations
                             Id = 4,
                             AuthorId = 4,
                             CategoryId = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 14.2m,
                             PublishDate = new DateOnly(1884, 12, 10),
                             Title = "Adventures of Huckleberry Finn"
@@ -149,13 +170,14 @@ namespace BookVerseApi.Migrations
                             Id = 5,
                             AuthorId = 5,
                             CategoryId = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 17.75m,
                             PublishDate = new DateOnly(1866, 1, 1),
                             Title = "Crime and Punishment"
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.Category", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -163,43 +185,54 @@ namespace BookVerseApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dystopian"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Fantasy"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Classic"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adventure"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Philosophical Fiction"
                         });
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.User", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -426,15 +459,15 @@ namespace BookVerseApi.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.Book", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Book", b =>
                 {
-                    b.HasOne("BookStoreApi.Entities.Author", "Author")
+                    b.HasOne("BookVerseApi.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStoreApi.Entities.Category", "Category")
+                    b.HasOne("BookVerseApi.Entities.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -456,7 +489,7 @@ namespace BookVerseApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("BookStoreApi.Entities.User", null)
+                    b.HasOne("BookVerseApi.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -465,7 +498,7 @@ namespace BookVerseApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("BookStoreApi.Entities.User", null)
+                    b.HasOne("BookVerseApi.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -480,7 +513,7 @@ namespace BookVerseApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStoreApi.Entities.User", null)
+                    b.HasOne("BookVerseApi.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -489,19 +522,19 @@ namespace BookVerseApi.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("BookStoreApi.Entities.User", null)
+                    b.HasOne("BookVerseApi.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.Author", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Author", b =>
                 {
                     b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("BookStoreApi.Entities.Category", b =>
+            modelBuilder.Entity("BookVerseApi.Entities.Category", b =>
                 {
                     b.Navigation("Books");
                 });

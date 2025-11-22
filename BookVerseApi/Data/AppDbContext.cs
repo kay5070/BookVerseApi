@@ -101,6 +101,7 @@ public class AppDbContext : IdentityDbContext<User,IdentityRole<Guid>,Guid>
             }
         );
         modelBuilder.Entity<Category>().HasData(
+            
             new Category { Id = 1, Name = "Dystopian" },
             new Category { Id = 2, Name = "Fantasy" },
             new Category { Id = 3, Name = "Classic" },

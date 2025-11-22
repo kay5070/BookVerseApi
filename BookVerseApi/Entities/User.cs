@@ -16,7 +16,7 @@ public class User : IdentityUser<Guid>
             Email = email,
             UserName = email,
             FirstName = firstName,
-            LastName = lastName
+            LastName = lastName,
         };
     }
 

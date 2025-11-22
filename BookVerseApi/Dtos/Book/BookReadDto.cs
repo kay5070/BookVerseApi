@@ -14,4 +14,7 @@ public class BookReadDto
 
     public DateOnly PublishDate { get; set; }
     public decimal Price { get; set; }
+    
+    public DateTime CreatedAtUtc { get; set; }
+    public DateTime UpdatedAtUtc { get; set; }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookVerseApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251101121102_AddedUserToDb")]
-    partial class AddedUserToDb
+    [Migration("20251122130859_AddedTimestampToBooks")]
+    partial class AddedTimestampToBooks
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace BookVerseApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -40,6 +43,9 @@ namespace BookVerseApi.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -49,30 +55,35 @@ namespace BookVerseApi.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "George",
                             LastName = "Orwell"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "J.K.",
                             LastName = "Rowling"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Jane",
                             LastName = "Austen"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Mark",
                             LastName = "Twain"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FirstName = "Fyodor",
                             LastName = "Dostoevsky"
                         });
@@ -92,6 +103,9 @@ namespace BookVerseApi.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -101,6 +115,9 @@ namespace BookVerseApi.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -116,6 +133,7 @@ namespace BookVerseApi.Migrations
                             Id = 1,
                             AuthorId = 1,
                             CategoryId = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 15.99m,
                             PublishDate = new DateOnly(1949, 6, 8),
                             Title = "1984"
@@ -125,6 +143,7 @@ namespace BookVerseApi.Migrations
                             Id = 2,
                             AuthorId = 2,
                             CategoryId = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 19.99m,
                             PublishDate = new DateOnly(1997, 6, 26),
                             Title = "Harry Potter and the Sorcerer's Stone"
@@ -134,6 +153,7 @@ namespace BookVerseApi.Migrations
                             Id = 3,
                             AuthorId = 3,
                             CategoryId = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 12.5m,
                             PublishDate = new DateOnly(1813, 1, 28),
                             Title = "Pride and Prejudice"
@@ -143,6 +163,7 @@ namespace BookVerseApi.Migrations
                             Id = 4,
                             AuthorId = 4,
                             CategoryId = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 14.2m,
                             PublishDate = new DateOnly(1884, 12, 10),
                             Title = "Adventures of Huckleberry Finn"
@@ -152,6 +173,7 @@ namespace BookVerseApi.Migrations
                             Id = 5,
                             AuthorId = 5,
                             CategoryId = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Price = 17.75m,
                             PublishDate = new DateOnly(1866, 1, 1),
                             Title = "Crime and Punishment"
@@ -166,9 +188,15 @@ namespace BookVerseApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -178,26 +206,31 @@ namespace BookVerseApi.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Dystopian"
                         },
                         new
                         {
                             Id = 2,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Fantasy"
                         },
                         new
                         {
                             Id = 3,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Classic"
                         },
                         new
                         {
                             Id = 4,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Adventure"
                         },
                         new
                         {
                             Id = 5,
+                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Philosophical Fiction"
                         });
                 });
@@ -310,6 +343,20 @@ namespace BookVerseApi.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3472507d-6568-4360-bbaa-da29673194f5"),
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = new Guid("f27ed6e2-2249-4c12-835a-cc623cc8f3ba"),
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
