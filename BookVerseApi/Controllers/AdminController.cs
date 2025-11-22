@@ -19,13 +19,17 @@ public class AdminController : ControllerBase
     }
     
     [HttpGet("users")]
+    [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(IEnumerable<UserWithRolesDto>),StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _adminService.GetAllUsersAsync();
         return Ok(users);
     }
     [HttpGet("users/{userId:guid}")]
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(typeof(UserWithRolesDto),StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetUserById(Guid userId)
@@ -37,6 +41,8 @@ public class AdminController : ControllerBase
         return Ok(user);
     }
 
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [HttpPost("users/{userId:guid}/make-admin")]
     [ProducesResponseType(typeof(BasicResponse),StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(BasicResponse),StatusCodes.Status400BadRequest)]
@@ -51,7 +57,8 @@ public class AdminController : ControllerBase
 
         return BadRequest(response);
     }
-
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [HttpPost("users/{userId:guid}/remove-admin")]
     [ProducesResponseType(typeof(BasicResponse),StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(BasicResponse),StatusCodes.Status400BadRequest)]
@@ -69,6 +76,8 @@ public class AdminController : ControllerBase
 
         return BadRequest(response);
     }
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [HttpDelete("users/{userId:guid}")]
     [ProducesResponseType(typeof(BasicResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(BasicResponse), StatusCodes.Status400BadRequest)]

@@ -115,9 +115,13 @@ public class AdminService : IAdminService
             var result = await _userManager.RemoveFromRoleAsync(user, IdentityRoleConstants.Admin);
             if (!result.Succeeded)
                 return new BasicResponse { Succeeded = false, Message = string.Join(", ", result.Errors.Select(e => e.Description)) };
+            
+            var addResult = await _userManager.AddToRoleAsync(user, IdentityRoleConstants.User);
+                if (!addResult.Succeeded)
+                    return new BasicResponse { Succeeded = false, Message = string.Join(", ", addResult.Errors.Select(e => e.Description)) };
 
             _logger.LogInformation("Admin role removed from user {Email}", user.Email);
-
+    
             return new BasicResponse { Succeeded = true, Message = $"Admin role removed from user {user.Email}." };
         }
         catch (Exception ex)
