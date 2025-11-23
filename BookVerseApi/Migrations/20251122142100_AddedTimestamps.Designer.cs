@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookVerseApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251122130859_AddedTimestampToBooks")]
-    partial class AddedTimestampToBooks
+    [Migration("20251122142100_AddedTimestamps")]
+    partial class AddedTimestamps
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,9 @@ namespace BookVerseApi.Migrations
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -47,6 +50,9 @@ namespace BookVerseApi.Migrations
                     b.Property<DateTime?>("UpdatedAtUtc")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
@@ -55,37 +61,52 @@ namespace BookVerseApi.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4957),
+                            CreatedBy = "System",
                             FirstName = "George",
-                            LastName = "Orwell"
+                            LastName = "Orwell",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4960),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4966),
+                            CreatedBy = "System",
                             FirstName = "J.K.",
-                            LastName = "Rowling"
+                            LastName = "Rowling",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4966),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4968),
+                            CreatedBy = "System",
                             FirstName = "Jane",
-                            LastName = "Austen"
+                            LastName = "Austen",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4968),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4969),
+                            CreatedBy = "System",
                             FirstName = "Mark",
-                            LastName = "Twain"
+                            LastName = "Twain",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4970),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4971),
+                            CreatedBy = "System",
                             FirstName = "Fyodor",
-                            LastName = "Dostoevsky"
+                            LastName = "Dostoevsky",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(4971),
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -106,6 +127,9 @@ namespace BookVerseApi.Migrations
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -118,6 +142,9 @@ namespace BookVerseApi.Migrations
 
                     b.Property<DateTime?>("UpdatedAtUtc")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -133,50 +160,65 @@ namespace BookVerseApi.Migrations
                             Id = 1,
                             AuthorId = 1,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5125),
+                            CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1949, 6, 8),
-                            Title = "1984"
+                            Title = "1984",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5126),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
                             AuthorId = 2,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5130),
+                            CreatedBy = "System",
                             Price = 19.99m,
                             PublishDate = new DateOnly(1997, 6, 26),
-                            Title = "Harry Potter and the Sorcerer's Stone"
+                            Title = "Harry Potter and the Sorcerer's Stone",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5130),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
                             AuthorId = 3,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5132),
+                            CreatedBy = "System",
                             Price = 12.5m,
                             PublishDate = new DateOnly(1813, 1, 28),
-                            Title = "Pride and Prejudice"
+                            Title = "Pride and Prejudice",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5132),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
                             AuthorId = 4,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5135),
+                            CreatedBy = "System",
                             Price = 14.2m,
                             PublishDate = new DateOnly(1884, 12, 10),
-                            Title = "Adventures of Huckleberry Finn"
+                            Title = "Adventures of Huckleberry Finn",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5135),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
                             AuthorId = 5,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5136),
+                            CreatedBy = "System",
                             Price = 17.75m,
                             PublishDate = new DateOnly(1866, 1, 1),
-                            Title = "Crime and Punishment"
+                            Title = "Crime and Punishment",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5137),
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -191,12 +233,18 @@ namespace BookVerseApi.Migrations
                     b.Property<DateTime>("CreatedAtUtc")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAtUtc")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -206,32 +254,47 @@ namespace BookVerseApi.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Dystopian"
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5171),
+                            CreatedBy = "System",
+                            Name = "Dystopian",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5172),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Fantasy"
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5203),
+                            CreatedBy = "System",
+                            Name = "Fantasy",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5204),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Classic"
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5205),
+                            CreatedBy = "System",
+                            Name = "Classic",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5206),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Adventure"
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5207),
+                            CreatedBy = "System",
+                            Name = "Adventure",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5207),
+                            UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Philosophical Fiction"
+                            CreatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5208),
+                            CreatedBy = "System",
+                            Name = "Philosophical Fiction",
+                            UpdatedAtUtc = new DateTime(2025, 11, 22, 14, 20, 59, 550, DateTimeKind.Utc).AddTicks(5209),
+                            UpdatedBy = "System"
                         });
                 });
 
@@ -247,6 +310,9 @@ namespace BookVerseApi.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -299,6 +365,9 @@ namespace BookVerseApi.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)

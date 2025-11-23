@@ -40,6 +40,8 @@ public class CategoryService: ICategoryService
         }
         else
         {
+            // category.CreatedAtUtc = DateTime.UtcNow;
+            // category.UpdatedAtUtc = DateTime.UtcNow;
             await _repository.AddAsync(category);
             await _repository.SaveAsync();
             return _mapper.Map<CategoryReadDto>(category);
@@ -50,7 +52,8 @@ public class CategoryService: ICategoryService
     {
         var category = await _repository.GetByIdAsync(id);
         if (category == null) return false;
-
+        
+        // category.UpdatedAtUtc = DateTime.UtcNow;
         _mapper.Map(categoryDto, category);
         await _repository.SaveAsync();
         return true;

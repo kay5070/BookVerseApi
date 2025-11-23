@@ -75,9 +75,9 @@ public class AccountService : IAccountService
 
             var user = User.Create(registerRequest.Email, registerRequest.FirstName, registerRequest.LastName);
 
-            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, registerRequest.Password);
+            // user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, registerRequest.Password);
 
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user,registerRequest.Password);
 
             if (!result.Succeeded)
             {
@@ -92,8 +92,10 @@ public class AccountService : IAccountService
                     Errors = result.Errors.Select(x => x.Description)
                 };
             }
-
             await _userManager.AddToRoleAsync(user, identityRoleName);
+            user.CreatedAtUtc = DateTime.UtcNow;
+            user.UpdatedAtUtc = DateTime.UtcNow;
+            await _userManager.UpdateAsync(user);
             _logger.LogInformation("User registered successfully: {Email} with role {Role}",
                 user.Email, identityRoleName);
 
@@ -302,7 +304,7 @@ public class AccountService : IAccountService
             var emailBody = $"""
                              Hello {user.FirstName},
 
-                             You requested to reset your password for BookStoreApi.
+                             You requested to reset your password for BookVerseApi.
 
                              To reset your password, click the link below:
                              {resetLink}
@@ -313,12 +315,12 @@ public class AccountService : IAccountService
                              This link and token will expire in 10 minutes.
 
                              Best regards,
-                             BookStoreApi Support
+                             BookVerseApi Support
                              """;
 
             await _emailService.SendEmailAsync(
                 user.Email!,
-                "BookStoreApi Password Reset",
+                "BookVerseApi Password Reset",
                 emailBody
             );
             _logger.LogInformation("Password reset email sent to: {Email}", user.Email);
@@ -446,7 +448,9 @@ public class AccountService : IAccountService
             {
                 Email = user.Email!,
                 FirstName = user.FirstName,
-                LastName = user.LastName
+                LastName = user.LastName,
+                CreatedAtUtc = user.CreatedAtUtc,
+                UpdatedAtUtc = user.UpdatedAtUtc
             };
         }
         catch (Exception ex)

@@ -38,6 +38,8 @@ public class AuthorsService:IAuthorsService
         }
         else
         {
+            // author.CreatedAtUtc = DateTime.UtcNow;
+            // author.UpdatedAtUtc = DateTime.UtcNow;
             await _repository.AddAsync(author);
             await _repository.SaveAsync();
             return _mapper.Map<AuthorReadDto>(author);
@@ -51,6 +53,7 @@ public class AuthorsService:IAuthorsService
         if (retrievedAuthor == null) return false;
         
          _mapper.Map(authorDto,retrievedAuthor);
+         // retrievedAuthor.UpdatedAtUtc = DateTime.UtcNow;
         _repository.Update(retrievedAuthor);
         await _repository.SaveAsync();
         return true;

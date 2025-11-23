@@ -2,6 +2,7 @@
 using BookVerseApi.Dtos.Author;
 using BookVerseApi.Dtos.Book;
 using BookVerseApi.Dtos.Category;
+using BookVerseApi.Dtos.User;
 using BookVerseApi.Entities;
 
 namespace BookVerseApi.Profiles;
@@ -29,5 +30,6 @@ public class MappingProfile:Profile
         CreateMap<Category, CategoryReadDto>();
         CreateMap<Category, CategoriesReadDto>();
         CreateMap<CategoryUpdateDto, Category>();
+        CreateMap<User, UserProfileDto>();
     }
 }
