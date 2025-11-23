@@ -10,13 +10,7 @@ public class EmailService : IEmailService
 {
     private readonly EmailOptions _emailOptions;
     private readonly ILogger<EmailService> _logger;
-
-    // private readonly IConfiguration _config;
-    //
-    // public EmailService(IConfiguration config)
-    // {
-    //     _config = config;
-    // }
+    
     public EmailService(IOptions<EmailOptions> emailOptions,ILogger<EmailService> logger)
     {
         _emailOptions = emailOptions.Value;

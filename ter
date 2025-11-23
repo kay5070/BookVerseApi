@@ -1,0 +1,230 @@
+[33mcommit 587a3b9d846f91901ebb45f23eec4b5289a972c6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 0e0d0b2 8ec2d93
+Author: Karem Sabry <96590012+kay5070@users.noreply.github.com>
+Date:   Fri Nov 21 15:46:26 2025 +0200
+
+    Merge pull request #2 from kay5070/AuthZ
+    
+    Auth z
+
+[33mcommit 8ec2d93ec37a39eceabe0c581eede8ec715c503f[m[33m ([m[1;31morigin/AuthZ[m[33m)[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Nov 21 15:45:04 2025 +0200
+
+    Changed Project Name To 'BookVerseApi'
+
+[33mcommit dd9de748a18166cdf1009a7f4806edd8380ef9d8[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Nov 21 14:35:16 2025 +0200
+
+    minor changes
+
+[33mcommit 73cf7f8065a932e38fe13d19c6b4992cfc86289c[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Thu Nov 20 15:29:15 2025 +0200
+
+    Added Authorization
+
+[33mcommit 5f8ccbbcb4ef4b0c6408d8a8bd03a4f23f801c8d[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Nov 19 14:42:17 2025 +0200
+
+    Added Admin
+
+[33mcommit 5100224b41c1acdf744427a32e60cf8bc7e87c5b[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Nov 19 12:31:23 2025 +0200
+
+    Added Roles
+
+[33mcommit 0e0d0b273569b9aa2f884415f7a168b0cd22b8b5[m[33m ([m[1;31morigin/AuthN[m[33m, [m[1;32mAuthN[m[33m)[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Nov 8 14:09:50 2025 +0200
+
+    Added Logout, forgot and resetPassword
+
+[33mcommit 7aeff87f9148c8e26d0dc054691676272c701ccd[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sun Nov 2 15:53:09 2025 +0200
+
+    Added Login Functionality
+
+[33mcommit a0cc8a1c21b801fccb1414c7052b0167ec045b53[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sun Nov 2 15:24:09 2025 +0200
+
+    Added User Registration
+
+[33mcommit 059c0fc010949e821d49f59cddae900d5c525bdf[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Nov 1 14:39:38 2025 +0200
+
+    The AuthTokenProcessorService
+
+[33mcommit b8b19936baa6f7530516e19590a58e2398a0b8c8[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Nov 1 14:17:43 2025 +0200
+
+    Added the OptionsPatter
+
+[33mcommit d31d956e69097b15b6509a207340d14597232e64[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Nov 1 14:13:35 2025 +0200
+
+    added user to dbcontext
+
+[33mcommit 0607bfdb671a1cbd64120ed0c3ace6771180d348[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Nov 1 14:04:16 2025 +0200
+
+    asd
+
+[33mcommit 9a22ca12525dd82a1a6eb65d359d88c255b88366[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Thu Oct 9 19:44:25 2025 +0300
+
+    Minor Changes
+
+[33mcommit c5213dd6aeb5f2ffb1188e3d35b5ae9098a79d5a[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Oct 8 19:21:42 2025 +0300
+
+    Refactored Category Repository to user the generic Repository Pattern
+
+[33mcommit 3fecbc81eeb296fc20d52a2ddc0927eb8fa33db0[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Oct 8 17:07:12 2025 +0300
+
+    Refactor Author and Book Repositories to use GenericRepository
+
+[33mcommit ffe5482c27e4891ea8a68905b4757e7fa57cce1b[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Oct 8 14:36:40 2025 +0300
+
+    .
+
+[33mcommit e6c16d34f5e63f2c045f6d7c8c5313f1e5f23f91[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Thu Oct 2 16:16:57 2025 +0300
+
+    A few modifications
+
+[33mcommit 3e077f0d830d4d8f16874ce7b493484bea45ee81[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Aug 29 17:57:36 2025 +0300
+
+    .
+
+[33mcommit 6c1659cd26ae471605fb58ee5d6517acdf90878c[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Aug 29 17:51:03 2025 +0300
+
+    .
+
+[33mcommit fba1e0912de3831cd415c371b5b4ecb79cd76705[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Aug 29 17:47:12 2025 +0300
+
+    modified gitignore
+
+[33mcommit 63e57b096f48ba67405e7caa76f224bf1eb5e267[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Aug 16 19:36:11 2025 +0300
+
+    Added Author CRUD
+
+[33mcommit ec8eed0fa8ce5600af3bc7530b70a01c476953f3[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Aug 15 17:43:51 2025 +0300
+
+    .
+
+[33mcommit c1ea00b37282dd24f10a26bc8c73dc37f2baa9b6[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Tue Aug 5 17:14:06 2025 +0300
+
+    added SqlServer and user secret
+
+[33mcommit a0b5066c9d946d5b5f04849eeaa5a69be0b0be55[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Tue Aug 5 16:33:21 2025 +0300
+
+    added gitignore
+
+[33mcommit 524879b5501bf1251720536ccea439c095d10b78[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Tue Aug 5 16:27:35 2025 +0300
+
+    removed .idea folder
+
+[33mcommit 5976805131abdda24be7a602abeae1adc354341d[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Tue Aug 5 16:26:38 2025 +0300
+
+    fixed unit tests
+
+[33mcommit 8c6b727d58f13f44a3c4c79ee3cb2d2f3c75fc78[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Mon Aug 4 20:22:48 2025 +0300
+
+    added async to project
+
+[33mcommit 043d263ee0f636f9042212959ca1079b10621456[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Jul 12 19:37:49 2025 +0300
+
+    Applied Clean Architecture
+
+[33mcommit cd643cc1e22e4dd5ba94547f9ff23465b5524a8b[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Jul 12 03:55:07 2025 +0300
+
+     Added Unit Testing
+
+[33mcommit 5924eeb063e6ed32581094bd21fd38697df2c350[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sat Jul 12 02:29:50 2025 +0300
+
+    last
+
+[33mcommit 22f99f785adeb45af621f724f96e595cc786e1fb[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Fri Jul 11 23:47:43 2025 +0300
+
+    added unit tests for the crud operations
+
+[33mcommit 3774d23415a936308e1f736b4ba98548951f1baa[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Thu Jul 10 20:11:16 2025 +0300
+
+    .
+
+[33mcommit 232041db4cf2cdd3a65d2afadb0afb6d95736b20[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Thu Jul 10 19:44:16 2025 +0300
+
+    refactored the methods to use the service class
+
+[33mcommit a447845ba82e46c1e2ce2711a884478c319ae52a[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Wed Jul 9 18:05:20 2025 +0300
+
+    added automapper and used it in controller
+
+[33mcommit 23f1e30dbc096fb27b093da47ded597b12df2288[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Mon Jul 7 17:31:30 2025 +0300
+
+    added CRUD operations
+
+[33mcommit 5c026bb42eff93639a5fe62ec9837f19b1345980[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sun Jul 6 19:29:46 2025 +0300
+
+    Installed EF Core
+
+[33mcommit c849bb87bf2a553ba9f1de098a20c5230321ea14[m
+Author: kay5070 <karemsabry5@gmail.com>
+Date:   Sun Jul 6 18:52:15 2025 +0300
+
+    Installed EF Core InMemory provider and configured database
