@@ -5,6 +5,12 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookVerseApi", "BookVerseApi\BookVerseApi.csproj", "{A02C1CEB-4E8F-4206-8A5C-E9FA096E93C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookVerse.Domain", "BookVerse.Domain\BookVerse.Domain.csproj", "{58CE40C2-DD2C-48AF-A9D5-3849B40A5516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookVerse.Infrastructure", "BookVerse.Infrastructure\BookVerse.Infrastructure.csproj", "{CD63CD86-B76D-4188-96E8-5F4035CA5FD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookVerse.Application", "BookVerse.Application\BookVerse.Application.csproj", "{8844858E-7F1F-47A5-8DC1-FF786033D99C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{A02C1CEB-4E8F-4206-8A5C-E9FA096E93C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A02C1CEB-4E8F-4206-8A5C-E9FA096E93C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A02C1CEB-4E8F-4206-8A5C-E9FA096E93C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58CE40C2-DD2C-48AF-A9D5-3849B40A5516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CE40C2-DD2C-48AF-A9D5-3849B40A5516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CE40C2-DD2C-48AF-A9D5-3849B40A5516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CE40C2-DD2C-48AF-A9D5-3849B40A5516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD63CD86-B76D-4188-96E8-5F4035CA5FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD63CD86-B76D-4188-96E8-5F4035CA5FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD63CD86-B76D-4188-96E8-5F4035CA5FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD63CD86-B76D-4188-96E8-5F4035CA5FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8844858E-7F1F-47A5-8DC1-FF786033D99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8844858E-7F1F-47A5-8DC1-FF786033D99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8844858E-7F1F-47A5-8DC1-FF786033D99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8844858E-7F1F-47A5-8DC1-FF786033D99C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

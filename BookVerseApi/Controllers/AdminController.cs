@@ -1,6 +1,6 @@
 using System.Security.Claims;
-using BookVerseApi.Dtos.User;
-using BookVerseApi.Interfaces;
+using BookVerse.Application.Dtos.User;
+using BookVerse.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,11 +1,11 @@
 using System.Security.Claims;
-using BookVerseApi.Dtos.User;
-using BookVerseApi.Interfaces;
+using BookVerse.Application.Dtos.User;
+using BookVerse.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
-using LoginRequest = BookVerseApi.Dtos.User.LoginRequest;
-using RegisterRequest = BookVerseApi.Dtos.User.RegisterRequest;
+using LoginRequest = BookVerse.Application.Dtos.User.LoginRequest;
+using RegisterRequest = BookVerse.Application.Dtos.User.RegisterRequest;
 using ResetPasswordRequest = Microsoft.AspNetCore.Identity.Data.ResetPasswordRequest;
 
 namespace BookVerseApi.Controllers;

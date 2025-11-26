@@ -1,5 +1,5 @@
-﻿using BookVerseApi.Dtos.Category;
-using BookVerseApi.Interfaces;
+﻿using BookVerse.Application.Dtos.Category;
+using BookVerse.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
