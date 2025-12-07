@@ -64,10 +64,11 @@ public class AdminService : IAdminService
     {
         try
         {
+            
             var user = await _userManager.FindByIdAsync(userId.ToString());
 
-            if (user == null)
-                return new BasicResponse { Succeeded = false, Message = "User not found." };
+            if (user == null || user.Id == Guid.Empty)
+                return new BasicResponse { Succeeded = false, Message = "Invalid user ID." };
             if (user.Email == currentAdminEmail)
             {
                 return new BasicResponse { Succeeded = false, Message = "You cannot change your own role." };

@@ -303,19 +303,14 @@ public class AccountService : IAccountService
             }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-            var resetLink =
-                $"https://localhost:7102/api/Auth/reset-password?email={Uri.EscapeDataString(request.Email)}&token={Uri.EscapeDataString(token)}";
-
+            
             var emailBody = $"""
                              Hello {user.FirstName},
 
                              You requested to reset your password for BookVerseApi.
 
-                             To reset your password, click the link below:
-                             {resetLink}
 
-                             If the link doesn’t work, copy this token and use it in Swagger:
+                             If the link doesn’t work, Here is your token: 
                              {token}
 
                              This link and token will expire in 10 minutes.

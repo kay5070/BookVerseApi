@@ -56,7 +56,7 @@ public class AuthorController : ControllerBase
         return await _service.UpdateAsync(id, authorDto) ? NoContent() : NotFound();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id}")]
     [Authorize(Roles = "Admin")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

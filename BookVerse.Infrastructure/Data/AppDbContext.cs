@@ -96,156 +96,109 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
         modelBuilder.Entity<BookCategory>().HasData(BookCategorySeed.GetBookCategories());
     }
 
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    // ✅ REFACTORED: Extracted common logic to eliminate duplication
+    private void ApplyAuditInformation()
     {
         var currentUserEmail = _httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? "System";
         var entries = ChangeTracker.Entries()
             .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
+        
         foreach (var entry in entries)
         {
-            if (entry.Entity is Book book)
+            switch (entry.Entity)
             {
-                if (entry.State == EntityState.Added)
-                {
-                    book.CreatedAtUtc = DateTime.UtcNow;
-                    book.CreatedBy = currentUserEmail;
-                    book.UpdatedAtUtc = DateTime.UtcNow;
-                    book.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    book.UpdatedAtUtc = DateTime.UtcNow;
-                    book.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            else if (entry.Entity is Author author)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    author.CreatedAtUtc = DateTime.UtcNow;
-                    author.CreatedBy = currentUserEmail;
-                    author.UpdatedAtUtc = DateTime.UtcNow;
-                    author.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    author.UpdatedAtUtc = DateTime.UtcNow;
-                    author.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            else if (entry.Entity is Category category)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    category.CreatedAtUtc = DateTime.UtcNow;
-                    category.CreatedBy = currentUserEmail;
-                    category.UpdatedAtUtc = DateTime.UtcNow;
-                    category.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    category.UpdatedAtUtc = DateTime.UtcNow;
-                    category.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            else if (entry.Entity is User user)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    user.CreatedAtUtc = DateTime.UtcNow;
-                    user.UpdatedAtUtc = DateTime.UtcNow;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    user.UpdatedAtUtc = DateTime.UtcNow;
-                }
-            }
-
-            else if (entry.Entity is BookAuthor bookAuthor && entry.State == EntityState.Added)
-            {
-                bookAuthor.CreatedAtUtc = DateTime.UtcNow;
-            }
-            else if (entry.Entity is BookCategory bookCategory && entry.State == EntityState.Added)
-            {
-                bookCategory.CreatedAtUtc = DateTime.UtcNow;
+                case Book book:
+                    ApplyBookAudit(book, entry.State, currentUserEmail);
+                    break;
+                case Author author:
+                    ApplyAuthorAudit(author, entry.State, currentUserEmail);
+                    break;
+                case Category category:
+                    ApplyCategoryAudit(category, entry.State, currentUserEmail);
+                    break;
+                case User user:
+                    ApplyUserAudit(user, entry.State);
+                    break;
+                case BookAuthor bookAuthor when entry.State == EntityState.Added:
+                    bookAuthor.CreatedAtUtc = DateTime.UtcNow;
+                    break;
+                case BookCategory bookCategory when entry.State == EntityState.Added:
+                    bookCategory.CreatedAtUtc = DateTime.UtcNow;
+                    break;
             }
         }
+    }
 
+    private void ApplyBookAudit(Book book, EntityState state, string currentUser)
+    {
+        if (state == EntityState.Added)
+        {
+            book.CreatedAtUtc = DateTime.UtcNow;
+            book.CreatedBy = currentUser;
+            book.UpdatedAtUtc = DateTime.UtcNow;
+            book.UpdatedBy = currentUser;
+        }
+        else if (state == EntityState.Modified)
+        {
+            book.UpdatedAtUtc = DateTime.UtcNow;
+            book.UpdatedBy = currentUser;
+        }
+    }
+
+    private void ApplyAuthorAudit(Author author, EntityState state, string currentUser)
+    {
+        if (state == EntityState.Added)
+        {
+            author.CreatedAtUtc = DateTime.UtcNow;
+            author.CreatedBy = currentUser;
+            author.UpdatedAtUtc = DateTime.UtcNow;
+            author.UpdatedBy = currentUser;
+        }
+        else if (state == EntityState.Modified)
+        {
+            author.UpdatedAtUtc = DateTime.UtcNow;
+            author.UpdatedBy = currentUser;
+        }
+    }
+
+    private void ApplyCategoryAudit(Category category, EntityState state, string currentUser)
+    {
+        if (state == EntityState.Added)
+        {
+            category.CreatedAtUtc = DateTime.UtcNow;
+            category.CreatedBy = currentUser;
+            category.UpdatedAtUtc = DateTime.UtcNow;
+            category.UpdatedBy = currentUser;
+        }
+        else if (state == EntityState.Modified)
+        {
+            category.UpdatedAtUtc = DateTime.UtcNow;
+            category.UpdatedBy = currentUser;
+        }
+    }
+
+    private void ApplyUserAudit(User user, EntityState state)
+    {
+        if (state == EntityState.Added)
+        {
+            user.CreatedAtUtc = DateTime.UtcNow;
+            user.UpdatedAtUtc = DateTime.UtcNow;
+        }
+        else if (state == EntityState.Modified)
+        {
+            user.UpdatedAtUtc = DateTime.UtcNow;
+        }
+    }
+
+    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        ApplyAuditInformation();
         return base.SaveChangesAsync(cancellationToken);
     }
 
     public override int SaveChanges()
     {
-        var currentUserEmail = _httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? "System";
-        var entries = ChangeTracker.Entries()
-            .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
-        foreach (var entry in entries)
-        {
-            if (entry.Entity is Book book)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    book.CreatedAtUtc = DateTime.UtcNow;
-                    book.CreatedBy = currentUserEmail;
-                    book.UpdatedAtUtc = DateTime.UtcNow;
-                    book.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    book.UpdatedAtUtc = DateTime.UtcNow;
-                    book.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            if (entry.Entity is Author author)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    author.CreatedAtUtc = DateTime.UtcNow;
-                    author.CreatedBy = currentUserEmail;
-                    author.UpdatedAtUtc = DateTime.UtcNow;
-                    author.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    author.UpdatedAtUtc = DateTime.UtcNow;
-                    author.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            if (entry.Entity is Category category)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    category.CreatedAtUtc = DateTime.UtcNow;
-                    category.CreatedBy = currentUserEmail;
-                    category.UpdatedAtUtc = DateTime.UtcNow;
-                    category.UpdatedBy = currentUserEmail;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    category.UpdatedAtUtc = DateTime.UtcNow;
-                    category.UpdatedBy = currentUserEmail;
-                }
-            }
-
-            if (entry.Entity is User user)
-            {
-                if (entry.State == EntityState.Added)
-                {
-                    user.CreatedAtUtc = DateTime.UtcNow;
-                    user.UpdatedAtUtc = DateTime.UtcNow;
-                }
-                else if (entry.State == EntityState.Modified)
-                {
-                    user.UpdatedAtUtc = DateTime.UtcNow;
-                }
-            }
-        }
-
+        ApplyAuditInformation();
         return base.SaveChanges();
     }
 }
