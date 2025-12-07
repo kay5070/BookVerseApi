@@ -17,18 +17,36 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ====================================
+// CONFIGURATION
+// ====================================
 builder.Configuration.AddUserSecrets<Program>();
-builder.Services.AddHttpContextAccessor();
+
+// ====================================
+// DATABASE
+// ====================================
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
         sqlOptions => sqlOptions.MigrationsAssembly("BookVerse.Infrastructure")));
+
+// ====================================
+// HTTP CONTEXT & CONTROLLERS
+// ====================================
+
+
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.DefaultIgnoreCondition =
         System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 }).AddNewtonsoftJson();
+
+// ====================================
+// IDENTITY CONFIGURATION
+// ====================================
 
 builder.Services.AddIdentity<User, IdentityRole<Guid>>(opt =>
     {
@@ -37,7 +55,7 @@ builder.Services.AddIdentity<User, IdentityRole<Guid>>(opt =>
         opt.Password.RequireLowercase = true;
         opt.Password.RequireUppercase = true;
         opt.Password.RequireNonAlphanumeric = true;
-        opt.Password.RequiredLength = 8;
+        opt.Password.RequiredLength = ApplicationConstants.MinPasswordLength;
 
         //User requirements
         opt.User.RequireUniqueEmail = true;
@@ -52,16 +70,28 @@ builder.Services.AddIdentity<User, IdentityRole<Guid>>(opt =>
     }).AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
 
-builder.Services.Configure<DataProtectionTokenProviderOptions>(opt => { opt.TokenLifespan = TimeSpan.FromHours(2); });
+// Configure password reset token lifespan
+builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
+{
+    opt.TokenLifespan = TimeSpan.FromHours(ApplicationConstants.PasswordResetTokenExpirationHours);
+});
+
+// ====================================
+// JWT AUTHENTICATION
+// ====================================
+
 builder.Services.AddAuthentication(opt =>
 {
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
-    var jwtOptions = builder.Configuration.GetSection(JwtOptions.JwtOptionsKey).Get<JwtOptions>() ??
-                     throw new ArgumentException(
-                         $"JWT configuration is missing. Please configure '{JwtOptions.JwtOptionsKey}' section.");
+    var jwtOptions = builder.Configuration.GetSection(JwtOptions.JwtOptionsKey).Get<JwtOptions>();
+    
+    if (jwtOptions == null)
+        throw new InvalidOperationException(
+            $"JWT configuration is missing. Please configure '{JwtOptions.JwtOptionsKey}' section.");
+    
     if (string.IsNullOrEmpty(jwtOptions.Secret) || jwtOptions.Secret.Length < 32)
     {
         throw new ArgumentException("JWT Secret must be at least 32 characters long.");
@@ -92,20 +122,34 @@ builder.Services.AddAuthentication(opt =>
         OnTokenValidated = context =>
         {
             var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
-            logger.LogDebug("Token validated for user: {User}", context.Principal?.Identity?.Name);
+            var userEmail = context.Principal?.Identity?.Name;
+            logger.LogDebug("Token validated for user: {User}", userEmail);
+
+            return Task.CompletedTask;
+        },
+        OnChallenge = context =>
+        {
+            var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+            logger.LogWarning("Authentication challenge: {Error} - {ErrorDescription}", 
+                context.Error, context.ErrorDescription);
             return Task.CompletedTask;
         }
     };
 });
 
+// ====================================
 // AUTHORIZATION POLICIES
+// ====================================
 
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole(IdentityRoleConstants.Admin));
     options.AddPolicy("UserOnly", policy => policy.RequireRole(IdentityRoleConstants.User));
-    // options.AddPolicy("AdminOrUser", policy => policy.RequireRole(IdentityRoleConstants.Admin, IdentityRoleConstants.User));
 });
+
+// ====================================
+// SWAGGER / OPENAPI
+// ====================================
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -149,37 +193,48 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+// ====================================
 // OPTIONS PATTERN CONFIGURATION
+// ====================================
 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.JwtOptionsKey));
-builder.Services.Configure<AdminUserOptions>(builder.Configuration.GetSection("AdminUser"));
-builder.Services.Configure<EmailOptions>(builder.Configuration.GetSection("EmailOptions"));
+builder.Services.Configure<JwtOptions>(
+    builder.Configuration.GetSection(JwtOptions.JwtOptionsKey));
 
-// DEPENDENCY INJECTION - SERVICES & REPOSITORIES
+builder.Services.Configure<AdminUserOptions>(
+    builder.Configuration.GetSection("AdminUser"));
 
+builder.Services.Configure<EmailOptions>(
+    builder.Configuration.GetSection("EmailOptions"));
+
+// ====================================
+// DEPENDENCY INJECTION
+// ====================================
+
+
+// Unit of Work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-//Books
+
+// Services
 builder.Services.AddScoped<IBooksService, BooksService>();
-
-//Authors
 builder.Services.AddScoped<IAuthorsService, AuthorsService>();
-
-//Categories
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
-// Authentication & Users
 builder.Services.AddScoped<IAccountService, AccountService>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IAuthTokenProcessor, AuthTokenProcessorService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
-
-//Email Service
 builder.Services.AddScoped<IEmailService, EmailService>();
+
+// Repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+// Token Processing
+builder.Services.AddScoped<IAuthTokenProcessor, AuthTokenProcessorService>();
 
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// ✅ ADDED: CORS Configuration
+// ====================================
+// CORS CONFIGURATION
+// ====================================
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("DevelopmentPolicy", policy =>
@@ -197,9 +252,17 @@ builder.Services.AddCors(options =>
             .AllowCredentials();
     });
 });
+
+// ====================================
+// BUILD APPLICATION
+// ====================================
+
 var app = builder.Build();
 
-//Database Seeding
+// ====================================
+// DATABASE SEEDING
+// ====================================
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -222,12 +285,21 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+// ====================================
+// MIDDLEWARE PIPELINE
+// ====================================
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "BookVerse API v1");
+        options.RoutePrefix = string.Empty; // Swagger at root
+    });
     app.UseCors("DevelopmentPolicy");
+    app.UseDeveloperExceptionPage();
 }
 else
 {
@@ -242,8 +314,11 @@ app.Use(async (context, next) =>
     context.Response.Headers["X-Frame-Options"] = "DENY";
     context.Response.Headers["X-XSS-Protection"] = "1; mode=block";
     context.Response.Headers["Referrer-Policy"] = "strict-origin-when-cross-origin";
+    context.Response.Headers["Content-Security-Policy"] = "default-src 'self'";
+
     await next();
 });
+
 
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseHttpsRedirection();
@@ -251,5 +326,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 
 app.Run();

@@ -11,41 +11,91 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        //Book Mapping
+        ConfigureBookMappings();
+        ConfigureAuthorMappings();
+        ConfigureCategoryMappings();
+        ConfigureUserMappings();
+
+    }
+    private void ConfigureBookMappings()
+    {
+        // Book -> BookReadDto (includes related data)
         CreateMap<Book, BookReadDto>()
             .ForMember(dest => dest.Authors,
                 opt => opt.MapFrom(src => src.BookAuthors.Select(ba => ba.Author)))
             .ForMember(dest => dest.Categories,
                 opt => opt.MapFrom(src => src.BookCategories.Select(bc => bc.Category)));
 
+        // Book -> BookBriefDto (minimal data)
         CreateMap<Book, BookBriefDto>();
-        CreateMap<BookCreateDto, Book>();
-        CreateMap<Book, BookReadDto>()
-            .ForMember(dest => dest.Authors,
-                opt => opt.MapFrom(src => src.BookAuthors.Select(ba => ba.Author)))
-            .ForMember(dest => dest.Categories,
-                opt => opt.MapFrom(src => src.BookCategories.Select(bc => bc.Category)));
-        CreateMap<BookUpdateDto, Book>();
 
-        // Author Mapping
+        // BookCreateDto -> Book
+        CreateMap<BookCreateDto, Book>()
+            .ForMember(dest => dest.BookAuthors, opt => opt.Ignore())
+            .ForMember(dest => dest.BookCategories, opt => opt.Ignore());
+
+        // BookUpdateDto -> Book
+        CreateMap<BookUpdateDto, Book>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.BookAuthors, opt => opt.Ignore())
+            .ForMember(dest => dest.BookCategories, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedAtUtc, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedBy, opt => opt.Ignore());
+    }
+     private void ConfigureAuthorMappings()
+    {
+        // Author -> AuthorBriefDto (minimal data)
         CreateMap<Author, AuthorBriefDto>();
-        CreateMap<Author, AuthorsReadDto>();
+
+        // Author -> AuthorListDto (for list views)
+        CreateMap<Author, AuthorListDto>();
+
+        // Author -> AuthorReadDto (includes books)
         CreateMap<Author, AuthorReadDto>()
             .ForMember(dest => dest.Books,
-                opt => opt.MapFrom(src => src.BookAuthors
-                    .Select(ba => ba.Book)));
-        CreateMap<AuthorCreateDto, Author>();
-        CreateMap<AuthorUpdateDto, Author>();
+                opt => opt.MapFrom(src => src.BookAuthors.Select(ba => ba.Book)));
 
-        //Category Mapping
+        // AuthorCreateDto -> Author
+        CreateMap<AuthorCreateDto, Author>()
+            .ForMember(dest => dest.BookAuthors, opt => opt.Ignore());
+
+        // AuthorUpdateDto -> Author
+        CreateMap<AuthorUpdateDto, Author>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.BookAuthors, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedAtUtc, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedBy, opt => opt.Ignore());
+    }
+
+    private void ConfigureCategoryMappings()
+    {
+        // Category -> CategoryBriefDto (minimal data)
         CreateMap<Category, CategoryBriefDto>();
-        CreateMap<Category, CategoriesReadDto>();
-        CreateMap<Category, CategoryReadDto>().ForMember(dest => dest.Books,
-            opt => opt.MapFrom(src => src.BookCategories.Select(bc => bc.Book)));
-        CreateMap<CategoryCreateDto, Category>();
-        CreateMap<CategoryUpdateDto, Category>();
 
+        // Category -> CategoryListDto (for list views)
+        CreateMap<Category, CategoryListDto>();
 
+        // Category -> CategoryReadDto (includes books)
+        CreateMap<Category, CategoryReadDto>()
+            .ForMember(dest => dest.Books,
+                opt => opt.MapFrom(src => src.BookCategories.Select(bc => bc.Book)));
+
+        // CategoryCreateDto -> Category
+        CreateMap<CategoryCreateDto, Category>()
+            .ForMember(dest => dest.BookCategories, opt => opt.Ignore());
+
+        // CategoryUpdateDto -> Category
+        CreateMap<CategoryUpdateDto, Category>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore())
+            .ForMember(dest => dest.BookCategories, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedAtUtc, opt => opt.Ignore())
+            .ForMember(dest => dest.CreatedBy, opt => opt.Ignore());
+    }
+
+    private void ConfigureUserMappings()
+    {
+        // User -> UserProfileDto
         CreateMap<User, UserProfileDto>();
     }
+    
 }

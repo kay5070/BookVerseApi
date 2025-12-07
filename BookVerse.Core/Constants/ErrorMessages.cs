@@ -8,6 +8,9 @@ public static class ErrorMessages
     public const string InvalidCredentials = "Invalid email or password.";
     public const string InvalidUserContext = "Invalid user context.";
     public const string CannotModifyOwnAccount = "You cannot modify your own account.";
+    public const string RegistrationFailed = "Registration failed.";
+    public const string InvalidPasswordResetRequest = "Invalid password reset request.";
+    
     
     // Role errors
     public const string InvalidRole = "Invalid role specified.";

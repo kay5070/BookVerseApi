@@ -45,8 +45,8 @@ public class AccountService : IAccountService
                 return new RegisterResponse
                 {
                     Succeeded = false,
-                    Message = "A user with this email already exists.",
-                    Errors = new[] { "Duplicate email" }
+                    Message = ErrorMessages.UserAlreadyExists,
+                    Errors = new[] { ErrorMessages.UserAlreadyExists }
                 };
             }
 
@@ -56,8 +56,8 @@ public class AccountService : IAccountService
                 return new RegisterResponse
                 {
                     Succeeded = false,
-                    Message = "Invalid role specified.",
-                    Errors = new[] { "You can only register as a normal user." }
+                    Message = ErrorMessages.InvalidRole,
+                    Errors = new[] { ErrorMessages.CannotRegisterAsAdmin }
                 };
             }
 
@@ -72,15 +72,13 @@ public class AccountService : IAccountService
                 return new RegisterResponse
                 {
                     Succeeded = false,
-                    Message = "Invalid role specified.",
-                    Errors = new[] { $"Role '{identityRoleName} does not exist'" }
+                    Message = ErrorMessages.InvalidRole,
+                    Errors = new[] {ErrorMessages.RoleDoesNotExist}
                 };
             }
 
 
             var user = User.Create(registerRequest.Email, registerRequest.FirstName, registerRequest.LastName);
-
-            // user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, registerRequest.Password);
 
             var result = await _userManager.CreateAsync(user, registerRequest.Password);
 
@@ -93,22 +91,20 @@ public class AccountService : IAccountService
                 return new RegisterResponse
                 {
                     Succeeded = false,
-                    Message = "Registration failed due to validation errors.",
+                    Message = ErrorMessages.RegistrationFailed,
                     Errors = result.Errors.Select(x => x.Description)
                 };
             }
 
             await _userManager.AddToRoleAsync(user, identityRoleName);
-            user.CreatedAtUtc = DateTime.UtcNow;
-            user.UpdatedAtUtc = DateTime.UtcNow;
-            await _userManager.UpdateAsync(user);
+            
             _logger.LogInformation("User registered successfully: {Email} with role {Role}",
                 user.Email, identityRoleName);
 
             return new RegisterResponse
             {
                 Succeeded = true,
-                Message = "User registered successfully.",
+                Message = SuccessMessages.RegistrationSuccessful,
             };
         }
         catch (Exception ex)
@@ -117,8 +113,8 @@ public class AccountService : IAccountService
             return new RegisterResponse
             {
                 Succeeded = false,
-                Message = "An error occurred during registration. Please try again later.",
-                Errors = new[] { "Internal server error" }
+                Message = ErrorMessages.InternalServerError,
+                Errors = new[] {ErrorMessages.RegistrationFailed }
             };
         }
     }
@@ -135,16 +131,19 @@ public class AccountService : IAccountService
                 return new LoginResponse
                 {
                     Succeeded = false,
-                    Message = "Invalid Username or Password",
+                    Message = ErrorMessages.InvalidCredentials,
                 };
             }
-
+            
+            
+            
             var roles = await _userManager.GetRolesAsync(user);
             var (jwtToken, expirationDateInUtc) = _authTokenProcessor.GenerateJwtToken(user, roles);
 
             var refreshTokenValue = _authTokenProcessor.GenerateRefreshToken();
 
-            var refreshTokenExpirationDateInUtc = DateTime.UtcNow.AddDays(7);
+            var refreshTokenExpirationDateInUtc = DateTime.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
+            
             user.RefreshToken = refreshTokenValue;
             user.RefreshTokenExpiresAtUtc = refreshTokenExpirationDateInUtc;
 
@@ -154,7 +153,7 @@ public class AccountService : IAccountService
             return new LoginResponse
             {
                 Succeeded = true,
-                Message = "Login Successful.",
+                Message = SuccessMessages.LoginSuccessful,
                 AccessToken = jwtToken,
                 ExpiresAtUtc = expirationDateInUtc,
                 RefreshToken = refreshTokenValue
@@ -166,7 +165,7 @@ public class AccountService : IAccountService
             return new LoginResponse
             {
                 Succeeded = false,
-                Message = "An error occurred during login. Please try again later."
+                Message = ErrorMessages.InternalServerError
             };
         }
     }
@@ -184,7 +183,7 @@ public class AccountService : IAccountService
                 return new BasicResponse()
                 {
                     Succeeded = false,
-                    Message = "User not found."
+                    Message = ErrorMessages.UserNotFound
                 };
             }
 
@@ -198,7 +197,7 @@ public class AccountService : IAccountService
                 return new BasicResponse
                 {
                     Succeeded = false,
-                    Message = "Unable to delete account."
+                    Message = ErrorMessages.OperationFailed
                 };
             }
 
@@ -207,7 +206,7 @@ public class AccountService : IAccountService
             return new BasicResponse
             {
                 Succeeded = true,
-                Message = "Account deleted successfully."
+                Message = SuccessMessages.AccountDeleted
             };
         }
         catch (Exception ex)
@@ -216,7 +215,7 @@ public class AccountService : IAccountService
             return new BasicResponse
             {
                 Succeeded = false,
-                Message = "An error occurred while deleting the account."
+                Message = ErrorMessages.InternalServerError
             };
         }
     }
@@ -230,7 +229,7 @@ public class AccountService : IAccountService
                 return new RefreshTokenResponse()
                 {
                     Succeeded = false,
-                    Message = "Refresh token is missing."
+                    Message = ErrorMessages.RefreshTokenMissing
                 };
             }
 
@@ -238,12 +237,12 @@ public class AccountService : IAccountService
 
             if (user == null)
             {
-                _logger.LogWarning("Refresh token not found or invalid");
+                _logger.LogWarning("Invalid refresh token attempt");
 
                 return new RefreshTokenResponse
                 {
                     Succeeded = false,
-                    Message = "Unable to retrieve user with this refresh Token"
+                    Message = ErrorMessages.RefreshTokenInvalid
                 };
             }
 
@@ -254,21 +253,25 @@ public class AccountService : IAccountService
                 return new RefreshTokenResponse()
                 {
                     Succeeded = false,
-                    Message = "Refresh token is expired. Please Login Again"
+                    Message = ErrorMessages.RefreshTokenExpired
                 };
             }
 
             var roles = await _userManager.GetRolesAsync(user);
             var (jwtToken, expirationDateInUtc) = _authTokenProcessor.GenerateJwtToken(user, roles);
             var refreshTokenValue = _authTokenProcessor.GenerateRefreshToken();
-            var refreshExpirationDateInUtc = DateTime.UtcNow.AddDays(7);
+            var refreshExpirationDateInUtc = DateTime.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
+            
             user.RefreshToken = refreshTokenValue;
             user.RefreshTokenExpiresAtUtc = refreshExpirationDateInUtc;
             await _userManager.UpdateAsync(user);
+            
+            _logger.LogInformation("Token refreshed for user: {Email}", user.Email);
+
             return new RefreshTokenResponse()
             {
                 Succeeded = true,
-                Message = "Token refreshed successfully.",
+                Message = SuccessMessages.TokenRefreshed,
                 AccessToken = jwtToken,
                 ExpiresAtUtc = expirationDateInUtc,
                 RefreshToken = refreshTokenValue
@@ -280,7 +283,7 @@ public class AccountService : IAccountService
             return new RefreshTokenResponse
             {
                 Succeeded = false,
-                Message = "An error occurred while refreshing the token."
+                Message = ErrorMessages.InternalServerError
             };
         }
     }
@@ -298,7 +301,7 @@ public class AccountService : IAccountService
                 return new BasicResponse
                 {
                     Succeeded = true,
-                    Message = "Password reset link has been sent to your email."
+                    Message = SuccessMessages.PasswordResetEmailSent
                 };
             }
 
@@ -309,14 +312,18 @@ public class AccountService : IAccountService
 
                              You requested to reset your password for BookVerseApi.
 
+                             Please use the following token to reset your password:
 
-                             If the link doesn’t work, Here is your token: 
                              {token}
 
-                             This link and token will expire in 10 minutes.
+                             This token will expire in {ApplicationConstants.PasswordResetTokenExpirationHours} hours.
+
+                             If you didn't request this password reset, please ignore this email and your password will remain unchanged.
+
+                             For security reasons, never share this token with anyone.
 
                              Best regards,
-                             BookVerseApi Support
+                             BookVerseApi Support Team
                              """;
 
             await _emailService.SendEmailAsync(
@@ -329,18 +336,17 @@ public class AccountService : IAccountService
             return new BasicResponse
             {
                 Succeeded = true,
-                Message = "Password reset link has been sent to your email."
+                Message = SuccessMessages.PasswordResetEmailSent
             };
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error sending password reset email for {Email}", request.Email);
-
-            // ✅ SECURITY: Still return success to prevent information leakage
+            
             return new BasicResponse
             {
                 Succeeded = true,
-                Message = "Password reset link has been sent to your email."
+                Message = SuccessMessages.PasswordResetEmailSent
             };
         }
     }
@@ -350,6 +356,7 @@ public class AccountService : IAccountService
         try
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
+            
             if (user == null)
             {
                 _logger.LogWarning("Password reset attempted for non-existent email: {Email}", request.Email);
@@ -357,7 +364,7 @@ public class AccountService : IAccountService
                 return new BasicResponse
                 {
                     Succeeded = false,
-                    Message = "Invalid email address."
+                    Message = ErrorMessages.InvalidPasswordResetRequest
                 };
             }
 
@@ -365,6 +372,9 @@ public class AccountService : IAccountService
 
             if (!result.Succeeded)
             {
+                _logger.LogWarning("Password reset failed for {Email}: {Errors}",
+                    request.Email,
+                    string.Join(", ", result.Errors.Select(e => e.Description)));
                 return new BasicResponse
                 {
                     Succeeded = false,
@@ -375,12 +385,13 @@ public class AccountService : IAccountService
             user.RefreshToken = null;
             user.RefreshTokenExpiresAtUtc = null;
             await _userManager.UpdateAsync(user);
+            
             _logger.LogInformation("Password reset successfully for: {Email}", user.Email);
 
             return new BasicResponse
             {
                 Succeeded = true,
-                Message = "Password has been reset successfully."
+                Message = SuccessMessages.PasswordResetSuccessful
             };
         }
         catch (Exception ex)
@@ -389,7 +400,7 @@ public class AccountService : IAccountService
             return new BasicResponse
             {
                 Succeeded = false,
-                Message = "An error occurred while resetting the password."
+                Message = ErrorMessages.InternalServerError
             };
         }
     }
@@ -406,20 +417,21 @@ public class AccountService : IAccountService
                 return new LogoutResponse
                 {
                     Succeeded = false,
-                    Message = "User not found."
+                    Message = ErrorMessages.UserNotFound
                 };
             }
 
             // Invalidate the refresh token
             user.RefreshToken = null;
             user.RefreshTokenExpiresAtUtc = null;
+            await _userManager.UpdateAsync(user);
+            
             _logger.LogInformation("User logged out: {Email}", userEmail);
 
-            await _userManager.UpdateAsync(user);
             return new LogoutResponse
             {
                 Succeeded = true,
-                Message = "User logged out successfully."
+                Message = SuccessMessages.LogoutSuccessful
             };
         }
         catch (Exception ex)
@@ -428,7 +440,7 @@ public class AccountService : IAccountService
             return new LogoutResponse
             {
                 Succeeded = false,
-                Message = "An error occurred during logout."
+                Message = ErrorMessages.InternalServerError
             };
         }
     }
@@ -447,7 +459,7 @@ public class AccountService : IAccountService
 
             return new UserProfileDto
             {
-                Email = user.Email!,
+                Email = user.Email ?? string.Empty,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 CreatedAtUtc = user.CreatedAtUtc,

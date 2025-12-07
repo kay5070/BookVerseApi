@@ -5,6 +5,7 @@ using BookVerse.Core.Entities;
 using BookVerse.Core.Models;
 using BookVerse.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace BookVerse.Infrastructure.Services;
 
@@ -13,37 +14,70 @@ public class BooksService : IBooksService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly AppDbContext _context;
+    private readonly ILogger<BooksService> _logger;
 
-    public BooksService(IUnitOfWork unitOfWork, IMapper mapper, AppDbContext context)
+    public BooksService(IUnitOfWork unitOfWork, IMapper mapper, AppDbContext context,ILogger<BooksService> logger)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _context = context;
+        _logger = logger;
     }
 
     public async Task<PagedResult<BookReadDto>> GetPagedAsync(BookQueryParameters parameters)
     {
-        var pagedBooks = await _unitOfWork.Books.GetPagedWithDetailsAsync(parameters);
-        var bookDtos = _mapper.Map<IEnumerable<BookReadDto>>(pagedBooks.Items);
+        try
+        {
+            var pagedBooks = await _unitOfWork.Books.GetPagedWithDetailsAsync(parameters);
+            var bookDtos = _mapper.Map<IEnumerable<BookReadDto>>(pagedBooks.Items);
 
-        return new PagedResult<BookReadDto>(
-            bookDtos,
-            pagedBooks.TotalCount,
-            pagedBooks.CurrentPage,
-            pagedBooks.PageSize
-        );
+            return new PagedResult<BookReadDto>(
+                bookDtos,
+                pagedBooks.TotalCount,
+                pagedBooks.CurrentPage,
+                pagedBooks.PageSize
+            );
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving paged books");
+            throw;
+        }
     }
 
     public async Task<IEnumerable<BookReadDto>> GetAllAsync()
     {
-        var books = await _unitOfWork.Books.GetAllAsync();
-        return _mapper.Map<IEnumerable<BookReadDto>>(books);
+        try
+        {
+            var books = await _unitOfWork.Books.GetAllAsync();
+            return _mapper.Map<IEnumerable<BookReadDto>>(books);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving all books");
+            throw;
+        }
     }
 
     public async Task<BookReadDto?> GetByIdAsync(int id)
     {
-        var book = await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
-        return book == null ? null : _mapper.Map<BookReadDto>(book);
+        try
+        {
+            var book = await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
+            
+            if (book == null)
+            {
+                _logger.LogWarning("Book not found with ID: {BookId}", id);
+                return null;
+            }
+
+            return _mapper.Map<BookReadDto>(book);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error retrieving book: {BookId}", id);
+            throw;
+        }
     }
 
     public async Task<BookReadDto> CreateAsync(BookCreateDto bookDto)
@@ -57,6 +91,7 @@ public class BooksService : IBooksService
 
             if (existingBook != null)
             {
+                _logger.LogInformation("Book already exists: {BookTitle}", book.Title);
                 await _unitOfWork.CommitTransactionAsync();
                 return _mapper.Map<BookReadDto>(existingBook);
             }
@@ -95,6 +130,7 @@ public class BooksService : IBooksService
         }
         catch (Exception ex)
         {
+            _logger.LogError(ex, "Error creating book: {BookTitle}", bookDto.Title);
             await _unitOfWork.RollbackTransactionAsync();
             throw;
         }
@@ -107,12 +143,18 @@ public class BooksService : IBooksService
             await _unitOfWork.BeginTransactionAsync();
 
             var book = await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
-            if (book == null) return false;
+            if (book == null)
+            { 
+                _logger.LogWarning("Attempted to update non-existent book with ID: {BookId}", id);
+                await _unitOfWork.RollbackTransactionAsync();
+                return false;
+                return false;
+            }
 
             //Update basic properties
             _mapper.Map(bookDto, book);
             _unitOfWork.Books.Update(book);
-
+            
             //Remove existing author relationships
             var existingAuthorRelations = await _context.BookAuthors
                 .Where(ba => ba.BookId == id)
@@ -151,11 +193,13 @@ public class BooksService : IBooksService
 
             await _unitOfWork.SaveChangesAsync();
             await _unitOfWork.CommitTransactionAsync();
-
+            
+            _logger.LogInformation("Updated book: {BookId}", id);
             return true;
         }
-        catch
+        catch(Exception ex)
         {
+            _logger.LogError(ex, "Error updating book: {BookId}", id);
             await _unitOfWork.RollbackTransactionAsync();
             throw;
         }
@@ -163,11 +207,25 @@ public class BooksService : IBooksService
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var book = await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
-        if (book == null) return false;
+        try
+        {
+            var book = await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
+            
+            if (book == null)
+            {
+                _logger.LogWarning("Attempted to delete non-existent book with ID: {BookId}", id);
+                return false;
+            }
 
-        _unitOfWork.Books.Delete(book);
-        await _unitOfWork.SaveChangesAsync();
-        return true;
+            _unitOfWork.Books.Delete(book);
+            await _unitOfWork.SaveChangesAsync();
+            _logger.LogInformation("Deleted book: {BookId}", id);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error deleting book: {BookId}", id);
+            throw;
+        }
     }
 }

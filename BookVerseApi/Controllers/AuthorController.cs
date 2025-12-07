@@ -21,7 +21,7 @@ public class AuthorController : ControllerBase
 
     [HttpGet]
     [AllowAnonymous]
-    [ProducesResponseType(typeof(PagedResult<AuthorsReadDto>),StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PagedResult<AuthorListDto>),StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAuthors([FromQuery] QueryParameters parameters)
     {
         var authors = await _service.GetPagedAsync(parameters);

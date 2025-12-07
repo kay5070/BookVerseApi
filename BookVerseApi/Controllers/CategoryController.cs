@@ -22,7 +22,7 @@ public class CategoryController : ControllerBase
 
     [HttpGet]
     [AllowAnonymous]
-    [ProducesResponseType(typeof(PagedResult<CategoriesReadDto>),StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PagedResult<CategoryListDto>),StatusCodes.Status200OK)]
     public async Task<IActionResult> GetCategories([FromQuery] QueryParameters parameters)
     {
         var categories = await _categoryService.GetPagedAsync(parameters);
