@@ -30,7 +30,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\BookVerse.Domain\BookVerse.Domain.csproj"/>
+        <ProjectReference Include="..\BookVerse.Core\BookVerse.Core.csproj" />
         <ProjectReference Include="..\BookVerse.Infrastructure\BookVerse.Infrastructure.csproj"/>
     </ItemGroup>
 
