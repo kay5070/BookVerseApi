@@ -318,8 +318,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
     Karem Sabry
-- GitHub: [@kay5070](https://github.com/kay5070)
-- LinkedIn: [karem-sabry-1a44ab230](https://www.linkedin.com/in/karem-sabry-1a44ab230/)
+- GitHub: [@karem-sabry](https://github.com/karem-sabry)
+- LinkedIn: [karem-sabry](https://www.linkedin.com/in/karem-sabry/)
 - Email: karemsabry2013@gmail.com
 
 ## 🙏 Acknowledgments
