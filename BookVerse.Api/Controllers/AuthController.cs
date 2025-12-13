@@ -9,7 +9,7 @@ using LoginRequest = BookVerse.Application.Dtos.User.LoginRequest;
 using RegisterRequest = BookVerse.Application.Dtos.User.RegisterRequest;
 using ResetPasswordRequest = Microsoft.AspNetCore.Identity.Data.ResetPasswordRequest;
 
-namespace BookVerseApi.Controllers;
+namespace BookVerse.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

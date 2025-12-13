@@ -24,7 +24,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Author", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,7 +77,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Book", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,7 +157,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Category", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -201,15 +201,15 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Book", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Book", b =>
                 {
-                    b.HasOne("BookVerseApi.Domain.Entities.Author", "Author")
+                    b.HasOne("BookVerse.Api.Domain.Entities.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookVerseApi.Domain.Entities.Category", "Category")
+                    b.HasOne("BookVerse.Api.Domain.Entities.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -220,12 +220,12 @@ namespace BookVerse.Infrastructure.Data.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Author", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Author", b =>
                 {
                     b.Navigation("Books");
                 });
 
-            modelBuilder.Entity("BookVerseApi.Domain.Entities.Category", b =>
+            modelBuilder.Entity("BookVerse.Api.Domain.Entities.Category", b =>
                 {
                     b.Navigation("Books");
                 });

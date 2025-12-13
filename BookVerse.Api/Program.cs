@@ -7,7 +7,7 @@ using BookVerse.Core.Models;
 using BookVerse.Infrastructure.Data;
 using BookVerse.Infrastructure.Repositories;
 using BookVerse.Infrastructure.Services;
-using BookVerseApi.Middlewares;
+using BookVerse.Api.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

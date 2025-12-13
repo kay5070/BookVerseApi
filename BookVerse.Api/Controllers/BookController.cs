@@ -6,7 +6,7 @@ using BookVerse.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookVerseApi.Controllers;
+namespace BookVerse.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

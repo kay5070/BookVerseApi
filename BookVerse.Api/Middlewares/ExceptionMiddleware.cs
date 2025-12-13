@@ -2,7 +2,7 @@
 using System.Text.Json;
 using BookVerse.Core.Models;
 
-namespace BookVerseApi.Middlewares;
+namespace BookVerse.Api.Middlewares;
 
 public class ExceptionMiddleware
 {

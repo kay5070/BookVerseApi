@@ -1,4 +1,4 @@
-﻿using BookVerse.Application.Dtos.Author;
+﻿using BookVerse.Application.Dtos.Category;
 using BookVerse.Application.Dtos.User;
 using BookVerse.Application.Interfaces;
 using BookVerse.Core.Constants;
@@ -6,34 +6,35 @@ using BookVerse.Core.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookVerseApi.Controllers;
+namespace BookVerse.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
 [Produces("application/json")]
-public class AuthorController : ControllerBase
+public class CategoryController : ControllerBase
 {
-    private readonly IAuthorsService _service;
-    public AuthorController(IAuthorsService service)
+    private readonly ICategoryService _categoryService;
+
+    public CategoryController(ICategoryService categoryService)
     {
-        _service = service;
+        _categoryService = categoryService;
     }
 
     [HttpGet]
     [AllowAnonymous]
-    [ProducesResponseType(typeof(PagedResult<AuthorListDto>),StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetAuthors([FromQuery] QueryParameters parameters)
+    [ProducesResponseType(typeof(PagedResult<CategoryListDto>),StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetCategories([FromQuery] QueryParameters parameters)
     {
-        var authors = await _service.GetPagedAsync(parameters);
-        return Ok(authors);
+        var categories = await _categoryService.GetPagedAsync(parameters);
+        return Ok(categories);
     }
 
     [HttpGet("{id:int}")]
     [AllowAnonymous]
-    [ProducesResponseType(typeof(AuthorReadDto),StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CategoryReadDto),StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AuthorReadDto>> GetAuthor(int id)
+    public async Task<ActionResult<CategoryReadDto>> GetCategoryById(int id)
     {
         if (id <= 0)
             return BadRequest(new BasicResponse 
@@ -41,23 +42,23 @@ public class AuthorController : ControllerBase
                 Succeeded = false, 
                 Message = ErrorMessages.InvalidId 
             });
-        var author = await _service.GetByIdAsync(id);
-        if (author == null) 
+        var category = await _categoryService.GetByIdAsync(id);
+        if (category == null)
             return NotFound(new BasicResponse 
             { 
                 Succeeded = false, 
-                Message = ErrorMessages.AuthorNotFound 
+                Message = ErrorMessages.CategoryNotFound 
             });
-        return Ok(author);
+        else
+            return Ok(category);
     }
 
     [HttpPost]
     [Authorize(Roles = IdentityRoleConstants.Admin)]
-    [ProducesResponseType(typeof(AuthorReadDto),StatusCodes.Status201Created)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(CategoryReadDto),StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
-    public async Task<ActionResult<AuthorReadDto>> CreateAuthor([FromBody]AuthorCreateDto authorDto)
+    public async Task<ActionResult<CategoryReadDto>> CreateCategory(CategoryCreateDto categoryDto)
     {
         if (!ModelState.IsValid)
         {
@@ -71,9 +72,8 @@ public class AuthorController : ControllerBase
                 Message = errorMessage
             });
         }
-        var createdAuthor =await _service.CreateAsync(authorDto);
-
-        return CreatedAtAction(nameof(GetAuthor), new { id = createdAuthor.Id }, createdAuthor);
+        var createdCategory = await _categoryService.CreateAsync(categoryDto);
+        return CreatedAtAction(nameof(GetCategoryById), new { id = createdCategory.Id }, createdCategory);
     }
 
     [HttpPut("{id:int}")]
@@ -83,7 +83,7 @@ public class AuthorController : ControllerBase
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateAuthor(int id, [FromBody] AuthorUpdateDto authorDto)
+    public async Task<IActionResult> UpdateCategory(int id, CategoryUpdateDto categoryDto)
     {
         if (id <= 0)
             return BadRequest(new BasicResponse 
@@ -103,28 +103,26 @@ public class AuthorController : ControllerBase
                 Message = errorMessage
             });
         }
-        var updated = await _service.UpdateAsync(id, authorDto);
-
+        var updated = await _categoryService.UpdateAsync(id, categoryDto);
         if (!updated)
         {
             return NotFound(new BasicResponse
             {
                 Succeeded = false,
-                Message = ErrorMessages.AuthorNotFound
+                Message = ErrorMessages.CategoryNotFound
             });
         }
-
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("{id:int}")]
     [Authorize(Roles = IdentityRoleConstants.Admin)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> DeleteAuthor(int id)
+    public async Task<IActionResult> DeleteCategory(int id)
     {
         if (id <= 0)
             return BadRequest(new BasicResponse 
@@ -132,16 +130,15 @@ public class AuthorController : ControllerBase
                 Succeeded = false, 
                 Message = ErrorMessages.InvalidId 
             });
+        var deleted = await _categoryService.DeleteAsync(id);
 
-        var deleted = await _service.DeleteAsync(id);
         if (!deleted)
-        {
             return NotFound(new BasicResponse 
             { 
                 Succeeded = false, 
-                Message = ErrorMessages.AuthorNotFound 
+                Message = ErrorMessages.CategoryNotFound 
             });
-        }
+
         return NoContent();
     }
 }

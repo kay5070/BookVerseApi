@@ -5,7 +5,7 @@ using BookVerse.Core.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookVerseApi.Controllers;
+namespace BookVerse.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

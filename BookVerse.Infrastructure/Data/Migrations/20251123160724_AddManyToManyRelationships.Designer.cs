@@ -24,7 +24,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BookVerseApi.Entities.Author", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Author", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.Book", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -237,7 +237,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.BookAuthor", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.BookAuthor", b =>
                 {
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -299,7 +299,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.BookCategory", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.BookCategory", b =>
                 {
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -367,7 +367,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.Category", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -443,7 +443,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.User", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -676,15 +676,15 @@ namespace BookVerse.Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.BookAuthor", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.BookAuthor", b =>
                 {
-                    b.HasOne("BookVerseApi.Entities.Author", "Author")
+                    b.HasOne("BookVerse.Api.Entities.Author", "Author")
                         .WithMany("BookAuthors")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookVerseApi.Entities.Book", "Book")
+                    b.HasOne("BookVerse.Api.Entities.Book", "Book")
                         .WithMany("BookAuthors")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -695,15 +695,15 @@ namespace BookVerse.Infrastructure.Data.Migrations
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.BookCategory", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.BookCategory", b =>
                 {
-                    b.HasOne("BookVerseApi.Entities.Book", "Book")
+                    b.HasOne("BookVerse.Api.Entities.Book", "Book")
                         .WithMany("BookCategories")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookVerseApi.Entities.Category", "Category")
+                    b.HasOne("BookVerse.Api.Entities.Category", "Category")
                         .WithMany("BookCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -725,7 +725,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("BookVerseApi.Entities.User", null)
+                    b.HasOne("BookVerse.Api.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -734,7 +734,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("BookVerseApi.Entities.User", null)
+                    b.HasOne("BookVerse.Api.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -749,7 +749,7 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookVerseApi.Entities.User", null)
+                    b.HasOne("BookVerse.Api.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -758,26 +758,26 @@ namespace BookVerse.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("BookVerseApi.Entities.User", null)
+                    b.HasOne("BookVerse.Api.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.Author", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Author", b =>
                 {
                     b.Navigation("BookAuthors");
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.Book", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Book", b =>
                 {
                     b.Navigation("BookAuthors");
 
                     b.Navigation("BookCategories");
                 });
 
-            modelBuilder.Entity("BookVerseApi.Entities.Category", b =>
+            modelBuilder.Entity("BookVerse.Api.Entities.Category", b =>
                 {
                     b.Navigation("BookCategories");
                 });

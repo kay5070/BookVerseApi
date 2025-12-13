@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
-        <RootNamespace>BookVerseApi</RootNamespace>
-        <AssemblyName>BookVerseApi</AssemblyName>
+        <PackageId>BookVerse.Api</PackageId>
     </PropertyGroup>
 
     <PropertyGroup>
