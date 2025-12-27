@@ -20,7 +20,7 @@ public class User : IdentityUser<Guid>
     public DateTime CreatedAtUtc { get; set; }
     public DateTime UpdatedAtUtc { get; set; }
 
-    public static User Create(string email, string firstName, string lastName)
+    public static User Create(string email, string firstName, string lastName,DateTime createdAt)
     {
         if (string.IsNullOrWhiteSpace(email))
             throw new ArgumentException("Email cannot be empty", nameof(email));
@@ -37,8 +37,8 @@ public class User : IdentityUser<Guid>
             UserName = email,
             FirstName = firstName,
             LastName = lastName,
-            CreatedAtUtc = DateTime.UtcNow,
-            UpdatedAtUtc = DateTime.UtcNow
+            CreatedAtUtc = createdAt,
+            UpdatedAtUtc = createdAt
         };
     }
 

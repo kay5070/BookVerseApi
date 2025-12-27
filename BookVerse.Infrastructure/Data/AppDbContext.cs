@@ -1,4 +1,5 @@
-﻿using BookVerse.Core.Constants;
+﻿using BookVerse.Application.Interfaces;
+using BookVerse.Core.Constants;
 using BookVerse.Core.Entities;
 using BookVerse.Core.Interfaces;
 using BookVerse.Infrastructure.Data.Seeds;
@@ -12,11 +13,13 @@ namespace BookVerse.Infrastructure.Data;
 public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor httpContextAccessor) :
+    public AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor httpContextAccessor,IDateTimeProvider dateTimeProvider) :
         base(options)
     {
         _httpContextAccessor = httpContextAccessor;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public DbSet<Book> Books { get; set; }
@@ -144,7 +147,7 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         var currentUserEmail = _httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? ApplicationConstants.SystemUser;
 
-        var currentTime = DateTime.UtcNow;
+        var currentTime = _dateTimeProvider.UtcNow;
         var entries = ChangeTracker.Entries()
             .Where(e => e.State == EntityState.Added || e.State == EntityState.Modified);
         

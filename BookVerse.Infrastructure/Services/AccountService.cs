@@ -19,10 +19,11 @@ public class AccountService : IAccountService
     private readonly IUserRepository _userRepository;
     private readonly IEmailService _emailService;
     private readonly ILogger<AccountService> _logger;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
     public AccountService(IAuthTokenProcessor authTokenProcessor, UserManager<User> userManager,
         RoleManager<IdentityRole<Guid>> roleManager, IUserRepository userRepository, IEmailService emailService,
-        ILogger<AccountService> logger)
+        ILogger<AccountService> logger,IDateTimeProvider dateTimeProvider)
     {
         _authTokenProcessor = authTokenProcessor;
         _userManager = userManager;
@@ -30,6 +31,7 @@ public class AccountService : IAccountService
         _userRepository = userRepository;
         _emailService = emailService;
         _logger = logger;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public async Task<RegisterResponse> RegisterAsync(RegisterRequest registerRequest)
@@ -78,7 +80,7 @@ public class AccountService : IAccountService
             }
 
 
-            var user = User.Create(registerRequest.Email, registerRequest.FirstName, registerRequest.LastName);
+            var user = User.Create(registerRequest.Email, registerRequest.FirstName, registerRequest.LastName,_dateTimeProvider.UtcNow);
 
             var result = await _userManager.CreateAsync(user, registerRequest.Password);
 

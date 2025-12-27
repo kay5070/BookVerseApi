@@ -27,9 +27,15 @@ builder.Configuration.AddUserSecrets<Program>();
 // DATABASE
 // ====================================
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions => sqlOptions.MigrationsAssembly("BookVerse.Infrastructure")));
+builder.Services.AddDbContext<AppDbContext>((serviceProvider,options) =>
+    {
+        var dateTimeProvider = serviceProvider.GetRequiredService<IDateTimeProvider>();
+        var httpContextAccessor = serviceProvider.GetRequiredService<IHttpContextAccessor>();
+        
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+            sqlOptions => sqlOptions.MigrationsAssembly("BookVerse.Infrastructure"));
+    }
+    );
 
 // ====================================
 // HTTP CONTEXT & CONTROLLERS
@@ -239,7 +245,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-
+builder.Services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
@@ -293,8 +299,8 @@ using (var scope = app.Services.CreateScope())
         var userManager = services.GetRequiredService<UserManager<User>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
         var adminOptions = services.GetRequiredService<IOptions<AdminUserOptions>>();
-
-        await DbInitializer.SeedDataAsync(context, userManager, roleManager, adminOptions, logger);
+        var dateTimeProvider = services.GetRequiredService<IDateTimeProvider>();
+        await DbInitializer.SeedDataAsync(context, userManager, roleManager, adminOptions, logger,dateTimeProvider);
         logger.LogInformation("Database seeding completed successfully");
     }
     catch (Exception ex)

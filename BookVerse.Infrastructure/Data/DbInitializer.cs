@@ -1,4 +1,5 @@
-﻿using BookVerse.Core.Constants;
+﻿using BookVerse.Application.Interfaces;
+using BookVerse.Core.Constants;
 using BookVerse.Core.Entities;
 using BookVerse.Core.Models;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +12,7 @@ namespace BookVerse.Infrastructure.Data;
 public static class DbInitializer
 {
     public static async Task SeedDataAsync(AppDbContext context, UserManager<User> userManager,
-        RoleManager<IdentityRole<Guid>> roleManager, IOptions<AdminUserOptions> adminOptions, ILogger logger)
+        RoleManager<IdentityRole<Guid>> roleManager, IOptions<AdminUserOptions> adminOptions, ILogger logger,IDateTimeProvider dateTimeProvider)
     {
         //Apply pending migrations
         await context.Database.MigrateAsync();
@@ -20,7 +21,7 @@ public static class DbInitializer
         await SeedRolesAsync(roleManager);
 
         //Seed admin user if doesn't exist
-        await SeedAdminUserAsync(userManager, adminOptions.Value, logger);
+        await SeedAdminUserAsync(userManager, adminOptions.Value, logger,dateTimeProvider);
     }
 
     private static async Task SeedRolesAsync(RoleManager<IdentityRole<Guid>> roleManager)
@@ -47,7 +48,7 @@ public static class DbInitializer
         }
     }
 
-    private static async Task SeedAdminUserAsync(UserManager<User> userManager, AdminUserOptions admin, ILogger logger)
+    private static async Task SeedAdminUserAsync(UserManager<User> userManager, AdminUserOptions admin, ILogger logger, IDateTimeProvider dateTimeProvider)
     {
         if (string.IsNullOrWhiteSpace(admin.Email))
         {
@@ -68,7 +69,7 @@ public static class DbInitializer
             return;
         }
 
-        var user = User.Create(email: admin.Email, firstName: admin.FirstName, lastName: admin.LastName);
+        var user = User.Create(email: admin.Email, firstName: admin.FirstName, lastName: admin.LastName,createdAt:dateTimeProvider.UtcNow);
 
         var createResult = await userManager.CreateAsync(user, admin.Password);
 
