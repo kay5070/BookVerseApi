@@ -248,7 +248,7 @@ public class AccountService : IAccountService
                 };
             }
 
-            if (user.RefreshTokenExpiresAtUtc < DateTime.UtcNow)
+            if (user.RefreshTokenExpiresAtUtc < _dateTimeProvider.UtcNow)
             {
                 _logger.LogInformation("Expired refresh token used for user: {Email}", user.Email);
 
@@ -262,7 +262,7 @@ public class AccountService : IAccountService
             var roles = await _userManager.GetRolesAsync(user);
             var (jwtToken, expirationDateInUtc) = _authTokenProcessor.GenerateJwtToken(user, roles);
             var refreshTokenValue = _authTokenProcessor.GenerateRefreshToken();
-            var refreshExpirationDateInUtc = DateTime.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
+            var refreshExpirationDateInUtc = _dateTimeProvider.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
             
             user.RefreshToken = refreshTokenValue;
             user.RefreshTokenExpiresAtUtc = refreshExpirationDateInUtc;

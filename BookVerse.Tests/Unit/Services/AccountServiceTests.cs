@@ -3,6 +3,7 @@ using BookVerse.Application.Interfaces;
 using BookVerse.Core.Constants;
 using BookVerse.Core.Entities;
 using BookVerse.Core.Enums;
+using BookVerse.Core.Models;
 using BookVerse.Infrastructure.Services;
 using BookVerse.Tests.Helpers;
 using FluentAssertions;
@@ -337,6 +338,94 @@ public class AccountServiceTests
         _mockTokenProcessor.Verify(x=>x.GenerateJwtToken(It.IsAny<User>(),It.IsAny<IList<string>>()),Times.Never);
 
     }
+    #endregion
+
+    #region RefreshTokenAsync Tests
+
+    [Fact]
+    public async Task RefreshTokenAsync_WithValidToken_ReturnsNewTokens()
+    {
+        // Arrange
+        var token = "valid-refresh-token";
+            
+        var request = new RefreshTokenRequest
+        {
+            RefreshToken = token
+        };
+    
+        var userRoles = new List<string> { IdentityRoleConstants.User };
+        var existingUser = new User
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "test@test.com",
+            RefreshToken = token,
+            RefreshTokenExpiresAtUtc = _mockDateTimeProvider.Object.UtcNow.AddDays(1)
+        };
+        
+        var newJwtToken = "new-generated-token";
+        var expirationDateInUtc = _mockDateTimeProvider.Object.UtcNow.AddMinutes(15);
+    
+        var newRefreshToken = "new-refresh-token";
+        
+        _mockUserRepository.Setup(x => x.GetUserByRefreshTokenAsync(request.RefreshToken)).ReturnsAsync(existingUser);
+    
+        _mockUserManager.Setup(x => x.GetRolesAsync(existingUser)).ReturnsAsync(userRoles);
+    
+        _mockTokenProcessor.Setup(x => x.GenerateJwtToken(existingUser, userRoles))
+            .Returns((newJwtToken, expirationDateInUtc));
+    
+        _mockTokenProcessor.Setup(x => x.GenerateRefreshToken()).Returns(newRefreshToken);
+    
+        _mockUserManager.Setup(x => x.UpdateAsync(existingUser)).ReturnsAsync(IdentityResult.Success);
+        
+        // Act
+        var result = await _sut.RefreshTokenAsync(request);
+    
+        // Assert
+        result.Succeeded.Should().BeTrue();
+        result.Message.Should().Be(SuccessMessages.TokenRefreshed);
+        result.AccessToken.Should().Be(newJwtToken);
+        result.ExpiresAtUtc.Should().Be(expirationDateInUtc);
+        result.RefreshToken.Should().Be(newRefreshToken);
+    }
+
+    [Fact]
+    public async Task RefreshTokenAsync_WithExpiredToken_ReturnsFailure()
+    {
+        // Arrange
+        var token = "valid-refresh-token";
+            
+        var request = new RefreshTokenRequest
+        {
+            RefreshToken = token
+        };
+    
+        var userRoles = new List<string> { IdentityRoleConstants.User };
+        var existingUser = new User
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "John",
+            LastName = "Doe",
+            Email = "test@test.com",
+            RefreshToken = token,
+            RefreshTokenExpiresAtUtc = _mockDateTimeProvider.Object.UtcNow.AddDays(-1)
+        };
+        
+        
+        _mockUserRepository.Setup(x => x.GetUserByRefreshTokenAsync(request.RefreshToken)).ReturnsAsync(existingUser);
+    
+        _mockUserManager.Setup(x => x.GetRolesAsync(existingUser)).ReturnsAsync(userRoles);
+        
+        // Act
+        var result = await _sut.RefreshTokenAsync(request);
+    
+        // Assert
+        result.Succeeded.Should().BeFalse();
+        result.Message.Should().Be(ErrorMessages.RefreshTokenExpired);
+    }
+    
     #endregion
 }
 
