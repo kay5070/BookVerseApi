@@ -225,6 +225,119 @@ public class AccountServiceTests
     }
 
     #endregion
+
+    #region LoginAsync Tests
+
+    [Fact]
+    public async Task LoginAsync_WithValidCredentials_ReturnsSuccessWithTokens()
+    {
+        // Arrange
+        var loginRequest = new LoginRequest
+        {
+            Email = "user@test.com",
+            Password = "Password123!"
+        };
+        var existingUser = new User
+        {
+            Id = Guid.NewGuid(),
+            FirstName = "John",
+            LastName = "Doe",
+            Email = loginRequest.Email
+        };
+
+        var jwtToken = "fake-token-for-testing";
+
+        var refreshToken = "Also-fake-token-for-testing";
+        
+        var userRoles = new List<string> { IdentityRoleConstants.User };
+
+        var expiresAt = _mockDateTimeProvider.Object.UtcNow.AddMinutes(60);
+        
+        _mockUserManager.Setup(x => x.FindByEmailAsync(loginRequest.Email)).ReturnsAsync(existingUser);
+
+        _mockUserManager.Setup(x => x.CheckPasswordAsync(existingUser, loginRequest.Password)).ReturnsAsync(true);
+
+        _mockUserManager.Setup(x => x.GetRolesAsync(existingUser)).ReturnsAsync(userRoles);
+
+        _mockTokenProcessor.Setup(x => x.GenerateJwtToken(existingUser, userRoles)).Returns((jwtToken, expiresAt));
+
+        _mockTokenProcessor.Setup(x => x.GenerateRefreshToken()).Returns(refreshToken);
+
+        _mockUserManager.Setup(x => x.UpdateAsync(existingUser)).ReturnsAsync(IdentityResult.Success);
+
+        // Act
+
+        var loginResult = await _sut.LoginAsync(loginRequest);
+
+        // Assert
+        loginResult.Succeeded.Should().Be(true);
+        loginResult.Message.Should().Be(SuccessMessages.LoginSuccessful);
+        loginResult.AccessToken.Should().Be(jwtToken);
+        loginResult.RefreshToken.Should().Be(refreshToken);
+        loginResult.ExpiresAtUtc.Should().Be(expiresAt);
+        loginResult.ExpiresAtUtc.Should().Be(expiresAt);
+
+        existingUser.RefreshToken.Should().Be(refreshToken);
+        existingUser.RefreshTokenExpiresAtUtc.Should().NotBeNull();
+        
+        _mockUserManager.Verify(x=>x.UpdateAsync(existingUser),Times.Once);
+
+    }
+
+    [Fact]
+    public async Task LoginAsync_WithInvalidEmail_ReturnsFailure()
+    {
+        // Arrange
+        var loginRequest = new LoginRequest
+        {
+            Email = "nonexistant@test.com",
+            Password = "Password123!"
+        };
+
+        _mockUserManager.Setup(x => x.FindByEmailAsync(loginRequest.Email)).ReturnsAsync((User?)null);
+
+        // Act
+        var result = await _sut.LoginAsync(loginRequest);
+        
+        // Assert
+        result.Succeeded.Should().BeFalse();
+        result.Message.Should().Be(ErrorMessages.InvalidCredentials);
+        result.AccessToken.Should().BeNull();
+        result.RefreshToken.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task LoginAsync_WithInvalidPassword_ReturnsFailure()
+    {
+        // Arrange
+        var loginRequest = new LoginRequest
+        {
+            Email = "test@test.com",
+            Password = "WrongPasswrod"
+        };
+
+        var existingUser = new User
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            Email = loginRequest.Email
+        };
+        _mockUserManager.Setup(x => x.FindByEmailAsync(loginRequest.Email)).ReturnsAsync(existingUser);
+
+        _mockUserManager.Setup(x => x.CheckPasswordAsync(existingUser, loginRequest.Password)).ReturnsAsync(false);
+        
+        // Act
+        var loginResult = await _sut.LoginAsync(loginRequest);
+        
+
+        // Assert
+        loginResult.Succeeded.Should().BeFalse();
+        loginResult.Message.Should().Be(ErrorMessages.InvalidCredentials);
+        
+        _mockTokenProcessor.Verify(x=>x.GenerateJwtToken(It.IsAny<User>(),It.IsAny<IList<string>>()),Times.Never);
+
+    }
+    #endregion
 }
 
 
