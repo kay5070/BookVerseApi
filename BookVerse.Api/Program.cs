@@ -244,7 +244,8 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICartService, CartService>();
+
 builder.Services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();

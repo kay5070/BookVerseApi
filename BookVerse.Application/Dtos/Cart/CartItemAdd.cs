@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookVerse.Application.Dtos.Order;
+namespace BookVerse.Application.Dtos.Cart;
 
-public class OrderItemCreateDto
+public class CartItemAdd
 {
     [Required(ErrorMessage = "Book ID is required")]
     [Range(1,int.MaxValue,ErrorMessage = "Invalid book ID")]

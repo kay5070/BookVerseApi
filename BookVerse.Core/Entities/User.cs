@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Identity;
 
 namespace BookVerse.Core.Entities;
@@ -12,6 +13,8 @@ public class User : IdentityUser<Guid>
     [Required]
     [MaxLength(100)]
     public required string LastName { get; set; }
+
+    public Cart? Cart { get; set; }
     
     [MaxLength(500)]
     public string? RefreshToken { get; set; }
@@ -19,7 +22,8 @@ public class User : IdentityUser<Guid>
     
     public DateTime CreatedAtUtc { get; set; }
     public DateTime UpdatedAtUtc { get; set; }
-
+    
+    
     public static User Create(string email, string firstName, string lastName,DateTime createdAt)
     {
         if (string.IsNullOrWhiteSpace(email))

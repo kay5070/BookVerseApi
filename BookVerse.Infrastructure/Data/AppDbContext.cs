@@ -27,18 +27,48 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     public DbSet<Category> Categories { get; set; }
     public DbSet<BookAuthor> BookAuthors { get; set; }
     public DbSet<BookCategory> BookCategories { get; set; }
-    public DbSet<Order> Orders { get; set; }
-    public DbSet<OrderItem> OrderItems { get; set; }
+    
+    public DbSet<Cart> Carts { get; set; }
+    public DbSet<CartItem> CartItems { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
+        modelBuilder.Entity<Book>()
+            .Property(b => b.Price)
+            .HasPrecision(18, 4);
+        modelBuilder.Entity<CartItem>()
+            .Property(c => c.PriceAtAdd)
+            .HasPrecision(18, 4);
         ConfigureUserEntity(modelBuilder);
         ConfigureBookAuthorRelationship(modelBuilder);
         ConfigureBookCategoryRelationship(modelBuilder);
-        ConfigureOrderRelationships(modelBuilder);
+        ConfigureCartRelationships(modelBuilder);
         SeedData(modelBuilder);
+    }
+
+    private static void ConfigureCartRelationships(ModelBuilder modelBuilder)
+    {
+        // One User has One Cart
+        modelBuilder.Entity<Cart>()
+            .HasOne(c => c.User)
+            .WithOne(u => u.Cart)
+            .HasForeignKey<Cart>(c => c.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        // One Cart has Many CartItems
+        modelBuilder.Entity<CartItem>()
+            .HasOne(ci => ci.Cart)
+            .WithMany(c => c.CartItems)
+            .HasForeignKey(ci => ci.CartId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<CartItem>()
+            .HasOne(ci => ci.Book)
+            .WithMany()
+            .HasForeignKey(ci => ci.BookId)
+            .OnDelete(DeleteBehavior.Restrict);
+
     }
 
     private static void ConfigureBookCategoryRelationship(ModelBuilder modelBuilder)
@@ -91,30 +121,7 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
                 .HasMaxLength(500);
         });
     }
-
-    public static void ConfigureOrderRelationships(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Order>(entity =>
-        {
-            entity.HasOne(o => o.User)
-                .WithMany()
-                .HasForeignKey(o => o.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            entity.HasMany(o => o.OrderItems)
-                .WithOne(oi => oi.Order)
-                .HasForeignKey(oi => oi.OrderId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        modelBuilder.Entity<OrderItem>(entity =>
-        {
-            entity.HasOne(oi => oi.Book)
-                .WithMany()
-                .HasForeignKey(oi => oi.BookId)
-                .OnDelete(DeleteBehavior.Restrict);
-        });
-    }
+    
     private static void SeedData(ModelBuilder modelBuilder)
     {
         // Seed Roles

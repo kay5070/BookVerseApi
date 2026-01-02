@@ -13,7 +13,8 @@ public class UnitOfWork : IUnitOfWork
     private IAuthorRepository? _authorRepository;
     private ICategoryRepository? _categoryRepository;
     private IUserRepository? _userRepository;
-    private IOrderRepository? _orderRepository;
+    
+    private ICartRepository? _cartRepository;
 
     public UnitOfWork(AppDbContext context)
     {
@@ -27,8 +28,7 @@ public class UnitOfWork : IUnitOfWork
     public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(_context);
 
     public IUserRepository Users => _userRepository ??= new UserRepository(_context);
-
-    public IOrderRepository Orders => _orderRepository ?? new OrderRepository(_context);
+    public ICartRepository Carts => _cartRepository ?? new CartRepository(_context);
     
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {

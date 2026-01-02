@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookVerse.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251212185335_AddedOrderToDb")]
-    partial class AddedOrderToDb
+    [Migration("20260102135401_AddedCartToDb")]
+    partial class AddedCartToDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,401 +65,401 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "George",
                             LastName = "Orwell",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Jane",
                             LastName = "Austen",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Mark",
                             LastName = "Twain",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Fyodor",
                             LastName = "Dostoevsky",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Leo",
                             LastName = "Tolstoy",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Charles",
                             LastName = "Dickens",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "F. Scott",
                             LastName = "Fitzgerald",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Herman",
                             LastName = "Melville",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Emily",
                             LastName = "Brontë",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Charlotte",
                             LastName = "Brontë",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "J.R.R.",
                             LastName = "Tolkien",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "J.K.",
                             LastName = "Rowling",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Isaac",
                             LastName = "Asimov",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Frank",
                             LastName = "Herbert",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Douglas",
                             LastName = "Adams",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "C.S.",
                             LastName = "Lewis",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Ray",
                             LastName = "Bradbury",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Aldous",
                             LastName = "Huxley",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Philip K.",
                             LastName = "Dick",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Ursula K.",
                             LastName = "Le Guin",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Gabriel García",
                             LastName = "Márquez",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Haruki",
                             LastName = "Murakami",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Toni",
                             LastName = "Morrison",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Margaret",
                             LastName = "Atwood",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Cormac",
                             LastName = "McCarthy",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Kurt",
                             LastName = "Vonnegut",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Stephen",
                             LastName = "King",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Agatha",
                             LastName = "Christie",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Arthur Conan",
                             LastName = "Doyle",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Dan",
                             LastName = "Brown",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Albert",
                             LastName = "Camus",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 32,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Viktor",
                             LastName = "Frankl",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 33,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Sun",
                             LastName = "Tzu",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 34,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Ernest",
                             LastName = "Hemingway",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 35,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Virginia",
                             LastName = "Woolf",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 36,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Oscar",
                             LastName = "Wilde",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 37,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "William",
                             LastName = "Golding",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 38,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "John",
                             LastName = "Steinbeck",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 39,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "Harper",
                             LastName = "Lee",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 40,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             CreatedBy = "System",
                             FirstName = "J.D.",
                             LastName = "Salinger",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(38),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(426),
                             UpdatedBy = "System"
                         });
                 });
@@ -488,7 +488,8 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
 
                     b.Property<DateOnly>("PublishDate")
                         .HasColumnType("date");
@@ -516,601 +517,601 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1949, 6, 8),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "1984",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 12.99m,
                             PublishDate = new DateOnly(1945, 8, 17),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Animal Farm",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 11.99m,
                             PublishDate = new DateOnly(1813, 1, 28),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Pride and Prejudice",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.50m,
                             PublishDate = new DateOnly(1884, 12, 10),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Adventures of Huckleberry Finn",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.75m,
                             PublishDate = new DateOnly(1866, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Crime and Punishment",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 18.99m,
                             PublishDate = new DateOnly(1880, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Brothers Karamazov",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 22.50m,
                             PublishDate = new DateOnly(1869, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "War and Peace",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 17.99m,
                             PublishDate = new DateOnly(1878, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Anna Karenina",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.25m,
                             PublishDate = new DateOnly(1861, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Great Expectations",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.99m,
                             PublishDate = new DateOnly(1859, 4, 30),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "A Tale of Two Cities",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1925, 4, 10),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Great Gatsby",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.50m,
                             PublishDate = new DateOnly(1851, 10, 18),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Moby-Dick",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 12.75m,
                             PublishDate = new DateOnly(1847, 12, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Wuthering Heights",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.50m,
                             PublishDate = new DateOnly(1847, 10, 16),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Jane Eyre",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 29.99m,
                             PublishDate = new DateOnly(1954, 7, 29),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Lord of the Rings",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 16,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 18.99m,
                             PublishDate = new DateOnly(1937, 9, 21),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Hobbit",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 17,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 19.99m,
                             PublishDate = new DateOnly(1997, 6, 26),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Harry Potter and the Philosopher's Stone",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 18,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 19.99m,
                             PublishDate = new DateOnly(1998, 7, 2),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Harry Potter and the Chamber of Secrets",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 19,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 24.99m,
                             PublishDate = new DateOnly(1950, 10, 16),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Chronicles of Narnia",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 20,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1951, 6, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Foundation",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 21,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.50m,
                             PublishDate = new DateOnly(1950, 12, 2),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "I, Robot",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 22,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 21.99m,
                             PublishDate = new DateOnly(1965, 8, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Dune",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 23,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.99m,
                             PublishDate = new DateOnly(1979, 10, 12),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Hitchhiker's Guide to the Galaxy",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 24,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1953, 10, 19),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Fahrenheit 451",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 25,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.50m,
                             PublishDate = new DateOnly(1932, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Brave New World",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 26,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1968, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Do Androids Dream of Electric Sheep?",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 27,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1969, 3, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Left Hand of Darkness",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 28,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 17.99m,
                             PublishDate = new DateOnly(1967, 5, 30),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "One Hundred Years of Solitude",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 29,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.50m,
                             PublishDate = new DateOnly(1987, 9, 4),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Norwegian Wood",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 30,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 17.25m,
                             PublishDate = new DateOnly(2002, 9, 12),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Kafka on the Shore",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 31,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1987, 9, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Beloved",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 32,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.99m,
                             PublishDate = new DateOnly(1985, 8, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Handmaid's Tale",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 33,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.50m,
                             PublishDate = new DateOnly(2006, 9, 26),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Road",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 34,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1969, 3, 31),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Slaughterhouse-Five",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 35,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 18.99m,
                             PublishDate = new DateOnly(1977, 1, 28),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Shining",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 36,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.50m,
                             PublishDate = new DateOnly(1934, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Murder on the Orient Express",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 37,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.99m,
                             PublishDate = new DateOnly(1939, 11, 6),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "And Then There Were None",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 38,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 12.99m,
                             PublishDate = new DateOnly(1902, 4, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Hound of the Baskervilles",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 39,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 16.99m,
                             PublishDate = new DateOnly(2003, 3, 18),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Da Vinci Code",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 40,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.50m,
                             PublishDate = new DateOnly(1942, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Stranger",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 41,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1946, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Man's Search for Meaning",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 42,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 11.99m,
                             PublishDate = new DateOnly(1910, 1, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Art of War",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 43,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 12.99m,
                             PublishDate = new DateOnly(1952, 9, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Old Man and the Sea",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 44,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 15.99m,
                             PublishDate = new DateOnly(1940, 10, 21),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "For Whom the Bell Tolls",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 45,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.50m,
                             PublishDate = new DateOnly(1925, 5, 14),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Mrs Dalloway",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 46,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 12.99m,
                             PublishDate = new DateOnly(1890, 7, 1),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Picture of Dorian Gray",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 47,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.99m,
                             PublishDate = new DateOnly(1954, 9, 17),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Lord of the Flies",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 48,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 11.99m,
                             PublishDate = new DateOnly(1937, 2, 25),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "Of Mice and Men",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 49,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 14.99m,
                             PublishDate = new DateOnly(1960, 7, 11),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "To Kill a Mockingbird",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 50,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             CreatedBy = "System",
                             Price = 13.99m,
                             PublishDate = new DateOnly(1951, 7, 16),
-                            QuantityInStock = 0,
+                            QuantityInStock = 10,
                             Title = "The Catcher in the Rye",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(312),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(647),
                             UpdatedBy = "System"
                         });
                 });
@@ -1137,301 +1138,301 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         {
                             BookId = 1,
                             AuthorId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 2,
                             AuthorId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 3,
                             AuthorId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 4,
                             AuthorId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 5,
                             AuthorId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 6,
                             AuthorId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 7,
                             AuthorId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 8,
                             AuthorId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 9,
                             AuthorId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 10,
                             AuthorId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 11,
                             AuthorId = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 12,
                             AuthorId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 13,
                             AuthorId = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 14,
                             AuthorId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 15,
                             AuthorId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 16,
                             AuthorId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 17,
                             AuthorId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 18,
                             AuthorId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 19,
                             AuthorId = 16,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 20,
                             AuthorId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 21,
                             AuthorId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 22,
                             AuthorId = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 23,
                             AuthorId = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 24,
                             AuthorId = 17,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 25,
                             AuthorId = 18,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 26,
                             AuthorId = 19,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 27,
                             AuthorId = 20,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 28,
                             AuthorId = 21,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 29,
                             AuthorId = 22,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 30,
                             AuthorId = 22,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 31,
                             AuthorId = 23,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 32,
                             AuthorId = 24,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 33,
                             AuthorId = 25,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 34,
                             AuthorId = 26,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 35,
                             AuthorId = 27,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 36,
                             AuthorId = 28,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 37,
                             AuthorId = 28,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 38,
                             AuthorId = 29,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 39,
                             AuthorId = 30,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 40,
                             AuthorId = 31,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 41,
                             AuthorId = 32,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 42,
                             AuthorId = 33,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 43,
                             AuthorId = 34,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 44,
                             AuthorId = 34,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 45,
                             AuthorId = 35,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 46,
                             AuthorId = 36,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 47,
                             AuthorId = 37,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 48,
                             AuthorId = 38,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 49,
                             AuthorId = 39,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         },
                         new
                         {
                             BookId = 50,
                             AuthorId = 40,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(498)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(838)
                         });
                 });
 
@@ -1457,620 +1458,697 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         {
                             BookId = 1,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 1,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 1,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 2,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 2,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 3,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 3,
                             CategoryId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 4,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 4,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 5,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 5,
                             CategoryId = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 5,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 6,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 6,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 6,
                             CategoryId = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 7,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 7,
                             CategoryId = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 8,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 8,
                             CategoryId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 8,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 9,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 9,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 10,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 10,
                             CategoryId = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 11,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 11,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 12,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 12,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 13,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 13,
                             CategoryId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 13,
                             CategoryId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 14,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 14,
                             CategoryId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 14,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 15,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 15,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 16,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 16,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 17,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 17,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 18,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 18,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 19,
                             CategoryId = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 19,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 20,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 21,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 22,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 22,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 23,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 24,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 24,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 25,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 25,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 25,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 26,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 27,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 28,
                             CategoryId = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 28,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 29,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 29,
                             CategoryId = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 29,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 30,
                             CategoryId = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 30,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 31,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 31,
                             CategoryId = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 31,
                             CategoryId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 32,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 32,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 33,
                             CategoryId = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 33,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 34,
                             CategoryId = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 34,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 35,
                             CategoryId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 35,
                             CategoryId = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 36,
                             CategoryId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 37,
                             CategoryId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 37,
                             CategoryId = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 38,
                             CategoryId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 38,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 39,
                             CategoryId = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 39,
                             CategoryId = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 40,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 40,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 41,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 42,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 43,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 43,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 44,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 44,
                             CategoryId = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 45,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 45,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 46,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 46,
                             CategoryId = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 46,
                             CategoryId = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 47,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 47,
                             CategoryId = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 47,
                             CategoryId = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 48,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 48,
                             CategoryId = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 49,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 49,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 50,
                             CategoryId = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         },
                         new
                         {
                             BookId = 50,
                             CategoryId = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(575)
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(995)
                         });
+                });
+
+            modelBuilder.Entity("BookVerse.Core.Entities.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("BookVerse.Core.Entities.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<decimal>("PriceAtAdd")
+                        .HasPrecision(18, 4)
+                        .HasColumnType("decimal(18,4)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("CartId");
+
+                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("BookVerse.Core.Entities.Category", b =>
@@ -2108,211 +2186,138 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Classic Literature",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Fantasy",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Science Fiction",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Dystopian",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Adventure",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Mystery",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Thriller",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Romance",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Historical Fiction",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Philosophy",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Horror",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Coming of Age",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Literary Fiction",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Psychological Fiction",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         },
                         new
                         {
                             Id = 15,
-                            CreatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            CreatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             CreatedBy = "System",
                             Name = "Magical Realism",
-                            UpdatedAtUtc = new DateTime(2025, 12, 12, 18, 53, 34, 601, DateTimeKind.Utc).AddTicks(249),
+                            UpdatedAtUtc = new DateTime(2026, 1, 2, 13, 54, 0, 510, DateTimeKind.Utc).AddTicks(588),
                             UpdatedBy = "System"
                         });
-                });
-
-            modelBuilder.Entity("BookVerse.Core.Entities.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("PaymentStatus")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("StripePaymentIntentId")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<decimal>("TotalAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime?>("UpdatedAtUtc")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("BookVerse.Core.Entities.OrderItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("BookVerse.Core.Entities.User", b =>
@@ -2587,18 +2592,18 @@ namespace BookVerse.Infrastructure.Data.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BookVerse.Core.Entities.Order", b =>
+            modelBuilder.Entity("BookVerse.Core.Entities.Cart", b =>
                 {
                     b.HasOne("BookVerse.Core.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .WithOne("Cart")
+                        .HasForeignKey("BookVerse.Core.Entities.Cart", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BookVerse.Core.Entities.OrderItem", b =>
+            modelBuilder.Entity("BookVerse.Core.Entities.CartItem", b =>
                 {
                     b.HasOne("BookVerse.Core.Entities.Book", "Book")
                         .WithMany()
@@ -2606,15 +2611,15 @@ namespace BookVerse.Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("BookVerse.Core.Entities.Order", "Order")
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
+                    b.HasOne("BookVerse.Core.Entities.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
 
-                    b.Navigation("Order");
+                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -2680,14 +2685,19 @@ namespace BookVerse.Infrastructure.Data.Migrations
                     b.Navigation("BookCategories");
                 });
 
+            modelBuilder.Entity("BookVerse.Core.Entities.Cart", b =>
+                {
+                    b.Navigation("CartItems");
+                });
+
             modelBuilder.Entity("BookVerse.Core.Entities.Category", b =>
                 {
                     b.Navigation("BookCategories");
                 });
 
-            modelBuilder.Entity("BookVerse.Core.Entities.Order", b =>
+            modelBuilder.Entity("BookVerse.Core.Entities.User", b =>
                 {
-                    b.Navigation("OrderItems");
+                    b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618
         }

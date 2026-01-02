@@ -13,10 +13,12 @@ namespace BookVerse.Infrastructure.Services;
 
 public class AuthTokenProcessorService : IAuthTokenProcessor
 {
+    private readonly IDateTimeProvider _dateTimeProvider;
     private readonly JwtOptions _jwtOptions;
 
-    public AuthTokenProcessorService(IOptions<JwtOptions> jwtOptions)
+    public AuthTokenProcessorService(IOptions<JwtOptions> jwtOptions,IDateTimeProvider dateTimeProvider)
     {
+        _dateTimeProvider = dateTimeProvider;
         _jwtOptions = jwtOptions.Value;
     }
 
@@ -34,7 +36,7 @@ public class AuthTokenProcessorService : IAuthTokenProcessor
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.ToString())
         }.Concat(roles.Select(r => new Claim(ClaimTypes.Role, r)));
-        var expires = DateTime.UtcNow.AddMinutes(_jwtOptions.ExpirationTimeInMinutes);
+        var expires = _dateTimeProvider.UtcNow.AddMinutes(_jwtOptions.ExpirationTimeInMinutes);
 
         var token = new JwtSecurityToken(
             issuer: _jwtOptions.Issuer,

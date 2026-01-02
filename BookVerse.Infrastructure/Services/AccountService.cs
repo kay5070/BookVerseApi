@@ -144,7 +144,7 @@ public class AccountService : IAccountService
 
             var refreshTokenValue = _authTokenProcessor.GenerateRefreshToken();
 
-            var refreshTokenExpirationDateInUtc = DateTime.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
+            var refreshTokenExpirationDateInUtc = _dateTimeProvider.UtcNow.AddDays(ApplicationConstants.RefreshTokenExpirationDays);
             
             user.RefreshToken = refreshTokenValue;
             user.RefreshTokenExpiresAtUtc = refreshTokenExpirationDateInUtc;

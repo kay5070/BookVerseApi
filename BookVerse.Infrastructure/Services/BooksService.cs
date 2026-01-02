@@ -15,13 +15,15 @@ public class BooksService : IBooksService
     private readonly IMapper _mapper;
     private readonly AppDbContext _context;
     private readonly ILogger<BooksService> _logger;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
-    public BooksService(IUnitOfWork unitOfWork, IMapper mapper, AppDbContext context,ILogger<BooksService> logger)
+    public BooksService(IUnitOfWork unitOfWork, IMapper mapper, AppDbContext context,ILogger<BooksService> logger,IDateTimeProvider dateTimeProvider)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _context = context;
         _logger = logger;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public async Task<PagedResult<BookReadDto>> GetPagedAsync(BookQueryParameters parameters)
@@ -106,7 +108,7 @@ public class BooksService : IBooksService
                 {
                     BookId = book.Id,
                     AuthorId = authorId,
-                    CreatedAtUtc = DateTime.UtcNow
+                    CreatedAtUtc = _dateTimeProvider.UtcNow
                 };
                 await _context.BookAuthors.AddAsync(bookAuthor);
             }
@@ -117,7 +119,7 @@ public class BooksService : IBooksService
                 {
                     BookId = book.Id,
                     CategoryId = categoryId,
-                    CreatedAtUtc = DateTime.UtcNow
+                    CreatedAtUtc = _dateTimeProvider.UtcNow
                 };
                 await _context.BookCategories.AddAsync(bookCategory);
             }
@@ -148,7 +150,6 @@ public class BooksService : IBooksService
                 _logger.LogWarning("Attempted to update non-existent book with ID: {BookId}", id);
                 await _unitOfWork.RollbackTransactionAsync();
                 return false;
-                return false;
             }
 
             //Update basic properties
@@ -168,7 +169,7 @@ public class BooksService : IBooksService
                 {
                     BookId = id,
                     AuthorId = authorId,
-                    CreatedAtUtc = DateTime.UtcNow
+                    CreatedAtUtc = _dateTimeProvider.UtcNow
                 };
                 await _context.BookAuthors.AddAsync(bookAuthor);
             }
@@ -186,7 +187,7 @@ public class BooksService : IBooksService
                 {
                     BookId = id,
                     CategoryId = categoryId,
-                    CreatedAtUtc = DateTime.UtcNow
+                    CreatedAtUtc = _dateTimeProvider.UtcNow
                 };
                 await _context.BookCategories.AddAsync(bookCategory);
             }

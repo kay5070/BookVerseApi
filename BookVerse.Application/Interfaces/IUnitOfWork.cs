@@ -6,7 +6,7 @@ public interface IUnitOfWork : IDisposable
     IAuthorRepository Authors { get; }
     ICategoryRepository Categories { get; }
     IUserRepository Users { get; }
-    IOrderRepository Orders { get; }
+    ICartRepository Carts { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     Task BeginTransactionAsync();
