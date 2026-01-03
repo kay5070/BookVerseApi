@@ -9,5 +9,4 @@ public static class ApplicationConstants
     public const int MaxPasswordLength = 50;
     public const int RefreshTokenExpirationDays = 7;
     public const int PasswordResetTokenExpirationHours =  2;
-    public const int JwtTokenExpirationMinutes = 60;
 }

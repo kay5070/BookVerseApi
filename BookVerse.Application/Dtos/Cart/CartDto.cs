@@ -1,6 +1,4 @@
-﻿using BookVerse.Core.Entities;
-
-namespace BookVerse.Application.Dtos.Cart;
+﻿namespace BookVerse.Application.Dtos.Cart;
 
 public class CartDto
 {

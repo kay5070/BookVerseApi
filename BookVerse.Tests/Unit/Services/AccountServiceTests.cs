@@ -3,7 +3,6 @@ using BookVerse.Application.Interfaces;
 using BookVerse.Core.Constants;
 using BookVerse.Core.Entities;
 using BookVerse.Core.Enums;
-using BookVerse.Core.Models;
 using BookVerse.Infrastructure.Services;
 using BookVerse.Tests.Helpers;
 using FluentAssertions;
@@ -428,14 +427,3 @@ public class AccountServiceTests
     
     #endregion
 }
-
-
-
-
-
-
-
-
-
-
-

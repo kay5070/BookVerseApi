@@ -1,7 +1,5 @@
-﻿using System.Linq.Expressions;
-using BookVerse.Application.Interfaces;
+﻿using BookVerse.Application.Interfaces;
 using BookVerse.Core.Entities;
-using BookVerse.Core.Models;
 using BookVerse.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
