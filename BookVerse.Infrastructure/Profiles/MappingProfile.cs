@@ -3,6 +3,7 @@ using BookVerse.Application.Dtos.Author;
 using BookVerse.Application.Dtos.Book;
 using BookVerse.Application.Dtos.Cart;
 using BookVerse.Application.Dtos.Category;
+using BookVerse.Application.Dtos.Order;
 using BookVerse.Application.Dtos.User;
 using BookVerse.Core.Entities;
 
@@ -17,6 +18,7 @@ public class MappingProfile : Profile
         ConfigureCategoryMappings();
         ConfigureUserMappings();
         ConfigureCartMappings();
+        ConfigureOrderMappings();
     }
     private void ConfigureBookMappings()
     {
@@ -106,5 +108,15 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.BookTitle, opt => opt.MapFrom(src => src.Book.Title))
             .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.PriceAtAdd));
     }
-    
+    private void ConfigureOrderMappings()
+    {
+        CreateMap<Order, OrderReadDto>()
+            .ForMember(dest => dest.OrderItems, opt => opt.MapFrom(src => src.OrderItems));
+
+        CreateMap<Order, OrderListDto>()
+            .ForMember(dest => dest.ItemCount, opt => opt.MapFrom(src => src.OrderItems.Count));
+
+        CreateMap<OrderItem, OrderItemDto>()
+            .ForMember(dest => dest.BookTitle, opt => opt.MapFrom(src => src.Book.Title));
+    }
 }

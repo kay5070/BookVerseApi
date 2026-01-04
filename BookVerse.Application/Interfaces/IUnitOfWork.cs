@@ -1,4 +1,6 @@
-﻿namespace BookVerse.Application.Interfaces;
+﻿using BookVerse.Core.Entities;
+
+namespace BookVerse.Application.Interfaces;
 
 public interface IUnitOfWork : IDisposable
 {
@@ -6,7 +8,8 @@ public interface IUnitOfWork : IDisposable
     IAuthorRepository Authors { get; }
     ICategoryRepository Categories { get; }
     ICartRepository Carts { get; }
-
+    IOrderRepository Orders { get; }
+    IGenericRepository<OrderItem> OrderItems { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     Task BeginTransactionAsync();
     Task CommitTransactionAsync();

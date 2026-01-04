@@ -33,4 +33,11 @@ public static class ErrorMessages
     public const string BookNotFound = "Book not found.";
     public const string AuthorNotFound = "Author not found.";
     public const string CategoryNotFound = "Category not found.";
+    
+    // Order Errors
+    public const string OrderNotFound = "Order not found";
+    public const string EmptyCart = "Cannot create order from an empty cart.";
+    public const string InsufficientStock = "Insufficient stock available for one or more items.";
+    public const string CannotCancelOrder = "This order cannot be cancelled.";
+    public const string InvalidOrderStatus = "Invalid order status.";
 }

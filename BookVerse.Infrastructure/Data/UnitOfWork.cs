@@ -1,4 +1,5 @@
 ﻿using BookVerse.Application.Interfaces;
+using BookVerse.Core.Entities;
 using BookVerse.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -16,6 +17,8 @@ public class UnitOfWork : IUnitOfWork
     
     private ICartRepository? _cartRepository;
 
+    private IOrderRepository? _orderRepository;
+    private IGenericRepository<OrderItem>? _orderItemRepository;
     public UnitOfWork(AppDbContext context)
     {
         _context = context;
@@ -29,7 +32,9 @@ public class UnitOfWork : IUnitOfWork
 
     public IUserRepository Users => _userRepository ??= new UserRepository(_context);
     public ICartRepository Carts => _cartRepository ?? new CartRepository(_context);
-    
+    public IOrderRepository Orders => _orderRepository ??= new OrderRepository(_context);
+    public IGenericRepository<OrderItem> OrderItems => 
+        _orderItemRepository ??= new GenericRepository<OrderItem>(_context);
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         return await _context.SaveChangesAsync(cancellationToken);

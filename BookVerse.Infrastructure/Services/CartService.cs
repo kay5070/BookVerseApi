@@ -74,7 +74,7 @@ public class CartService : ICartService
             {
                 _logger.LogWarning("Insufficient stock for book: {BookId}. Requested: {Requested}, Available: {Available}", 
                     cartItem.BookId, cartItem.Quantity, book.QuantityInStock);
-                throw new InvalidOperationException("Insufficient stock available");
+                throw new InvalidOperationException(ErrorMessages.InsufficientStock);
             }
 
             var existingCartItem = await _unitOfWork.Carts.GetCartItemAsync(cart.Id, book.Id);
@@ -85,7 +85,7 @@ public class CartService : ICartService
                 {
                     _logger.LogWarning("Insufficient stock for book: {BookId}. Requested total: {Requested}, Available: {Available}", 
                         cartItem.BookId, newQuantity, book.QuantityInStock);
-                    throw new InvalidOperationException("Insufficient stock available");
+                    throw new InvalidOperationException(ErrorMessages.InsufficientStock);
                 }
 
                 existingCartItem.Quantity = newQuantity;
@@ -154,7 +154,7 @@ public class CartService : ICartService
             {
                 _logger.LogWarning("Insufficient stock for book: {BookId}. Requested: {Requested}, Available: {Available}", 
                     cartItem.BookId, cartItemUpdate.Quantity, book.QuantityInStock);
-                throw new InvalidOperationException("Insufficient stock available");
+                throw new InvalidOperationException(ErrorMessages.InsufficientStock);
 
             }
 

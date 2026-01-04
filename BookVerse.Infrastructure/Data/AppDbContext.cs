@@ -31,6 +31,8 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     public DbSet<Cart> Carts { get; set; }
     public DbSet<CartItem> CartItems { get; set; }
     
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -47,6 +49,37 @@ public class AppDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
         SeedData(modelBuilder);
     }
 
+    private static void ConfigureOrderRelationships(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Order>(entity =>
+        {
+            entity.HasIndex(o => o.OrderNumber)
+                .IsUnique();
+
+            entity.HasIndex(o => o.UserId);
+
+            entity.HasIndex(o => o.OrderDate);
+
+            entity.HasOne(o => o.User)
+                .WithMany(u => u.Orders)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
+
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            entity.HasOne(oi => oi.Order)
+                .WithMany(o => o.OrderItems)
+                .HasForeignKey(oi => oi.OrderId)
+                .OnDelete(DeleteBehavior.Cascade); 
+
+            entity.HasOne(oi => oi.Book)
+                .WithMany()
+                .HasForeignKey(oi => oi.BookId)
+                .OnDelete(DeleteBehavior.Restrict); 
+        });
+    }
+    
     private static void ConfigureCartRelationships(ModelBuilder modelBuilder)
     {
         // One User has One Cart

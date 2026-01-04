@@ -1,0 +1,108 @@
+﻿using BookVerse.Application.Interfaces;
+using BookVerse.Core.Entities;
+using BookVerse.Core.Models;
+using BookVerse.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+
+namespace BookVerse.Infrastructure.Repositories;
+
+public class OrderRepository : GenericRepository<Order>, IOrderRepository
+{
+    private readonly AppDbContext _context;
+
+    public OrderRepository(AppDbContext context) : base(context)
+    {
+        _context = context;
+    }
+
+    public async Task<Order?> GetOrderWithDetailsAsync(int orderId)
+    {
+        return await _dbSet
+            .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Book)
+            .Include(o => o.User)
+            .FirstOrDefaultAsync(o => o.Id == orderId);
+    }
+
+    public async Task<PagedResult<Order>> GetUserOrdersAsync(Guid userId, QueryParameters parameters)
+    {
+        IQueryable<Order> query = _dbSet
+            .Include(o => o.OrderItems)
+            .Where(o => o.UserId == userId);
+
+        if (!string.IsNullOrWhiteSpace(parameters.SearchTerm))
+        {
+            var lowerSearchTerm = parameters.SearchTerm.ToLower();
+            query = query.Where(o => 
+                o.OrderNumber.ToLower().Contains(lowerSearchTerm) ||
+                (o.ShippingAddress != null && o.ShippingAddress.ToLower().Contains(lowerSearchTerm)));
+        }
+
+        var totalCount = await query.CountAsync();
+
+        if (!string.IsNullOrWhiteSpace(parameters.SortBy))
+        {
+            query = ApplySorting(query, parameters.SortBy, parameters.SortDescending);
+        }
+        else
+        {
+            query = query.OrderByDescending(o => o.OrderDate);
+        }
+
+        var items = await query
+            .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+            .Take(parameters.PageSize)
+            .ToListAsync();
+
+        return new PagedResult<Order>(items, totalCount, parameters.PageNumber, parameters.PageSize);
+    }
+
+    public async Task<PagedResult<Order>> GetAllOrdersAsync(QueryParameters parameters)
+    {
+        IQueryable<Order> query = _dbSet
+            .Include(o => o.OrderItems)
+            .Include(o => o.User);
+
+        if (!string.IsNullOrWhiteSpace(parameters.SearchTerm))
+        {
+            var lowerSearchTerm = parameters.SearchTerm.ToLower();
+            query = query.Where(o =>
+                o.OrderNumber.ToLower().Contains(lowerSearchTerm) ||
+                (o.ShippingAddress != null && o.ShippingAddress.ToLower().Contains(lowerSearchTerm)) ||
+                (o.User.Email != null && o.User.Email.ToLower().Contains(lowerSearchTerm)) ||
+                (o.User.FirstName.ToLower().Contains(lowerSearchTerm)) ||
+                (o.User.LastName.ToLower().Contains(lowerSearchTerm)));
+        }
+
+        var totalCount = await query.CountAsync();
+
+        if (!string.IsNullOrWhiteSpace(parameters.SortBy))
+        {
+            query = ApplySorting(query, parameters.SortBy, parameters.SortDescending);
+        }
+        else
+        {
+            query = query.OrderByDescending(o => o.OrderDate);
+        }
+
+        var items = await query
+            .Skip((parameters.PageNumber - 1) * parameters.PageSize)
+            .Take(parameters.PageSize)
+            .ToListAsync();
+
+        return new PagedResult<Order>(items, totalCount, parameters.PageNumber, parameters.PageSize);
+    }
+
+    public async Task<Order?> GetUserOrderByIdAsync(Guid userId, int orderId)
+    {
+        return await _dbSet
+            .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Book)
+            .FirstOrDefaultAsync(o => o.Id == orderId && o.UserId == userId);
+    }
+
+    public async Task<bool> OrderExistsForUserAsync(Guid userId, int orderId)
+    {
+        return await _dbSet.AnyAsync(o => o.Id == orderId && o.UserId == userId);
+    }
+}

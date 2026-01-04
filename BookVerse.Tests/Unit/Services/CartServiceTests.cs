@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using BookVerse.Application.Dtos.Cart;
-using BookVerse.Application.Dtos.User;
 using BookVerse.Application.Interfaces;
 using BookVerse.Core.Constants;
 using BookVerse.Core.Entities;
@@ -460,7 +459,7 @@ public class CartServiceTests
 
         // Assert
         await act.Should().ThrowAsync<InvalidOperationException>()
-            .WithMessage("Insufficient stock available");
+            .WithMessage(ErrorMessages.InsufficientStock);
 
         _mockUnitOfWork.Verify(x => x.RollbackTransactionAsync(), Times.Once);
         _mockUnitOfWork.Verify(x => x.CommitTransactionAsync(), Times.Never);
@@ -655,7 +654,7 @@ public class CartServiceTests
 
         // Assert
         await act.Should().ThrowAsync<InvalidOperationException>()
-            .WithMessage("Insufficient stock available");
+            .WithMessage(ErrorMessages.InsufficientStock);
 
         _mockCartRepository.Verify(x => x.UpdateCartItem(It.IsAny<CartItem>()), Times.Never);
         _mockUnitOfWork.Verify(x => x.SaveChangesAsync(default), Times.Never);
